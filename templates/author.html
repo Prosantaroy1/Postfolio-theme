@@ -1,0 +1,53 @@
+<!-- wp:template-part {"slug":"header","area":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","align":"full","layout":{"type":"constrained"}} -->
+<main class="wp-block-group alignfull">
+
+	<!-- wp:pattern {"slug":"postfolio-blocks/author-bio-card"} /-->
+
+	<!-- wp:group {"align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|50"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignwide" style="margin-top:var(--wp--preset--spacing--50)">
+		<!-- wp:heading {"level":2,"fontSize":"large"} -->
+		<h2 class="wp-block-heading has-large-font-size">Posts by this author</h2>
+		<!-- /wp:heading -->
+
+		<!-- wp:query {"queryId":0,"query":{"perPage":9,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","inherit":true},"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"default"}} -->
+		<div class="wp-block-query alignwide">
+
+			<!-- wp:post-template {"align":"wide","layout":{"type":"grid","columnCount":3}} -->
+
+				<!-- wp:group {"className":"is-style-card","style":{"spacing":{"blockGap":"0.6rem"}},"layout":{"type":"constrained"}} -->
+				<div class="wp-block-group is-style-card">
+					<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/3","style":{"border":{"radius":"1rem"}}} /-->
+
+					<!-- wp:post-terms {"term":"category","fontSize":"small","className":"postfolio-badge"} /-->
+
+					<!-- wp:post-title {"level":3,"isLink":true,"fontSize":"large"} /-->
+
+					<!-- wp:post-date {"fontSize":"small","textColor":"contrast-2"} /-->
+				</div>
+				<!-- /wp:group -->
+
+			<!-- /wp:post-template -->
+
+			<!-- wp:query-no-results -->
+				<!-- wp:paragraph -->
+				<p>This author hasn't published anything yet.</p>
+				<!-- /wp:paragraph -->
+			<!-- /wp:query-no-results -->
+
+			<!-- wp:query-pagination {"align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}}},"layout":{"type":"flex","justifyContent":"space-between"}} -->
+				<!-- wp:query-pagination-previous /-->
+				<!-- wp:query-pagination-numbers /-->
+				<!-- wp:query-pagination-next /-->
+			<!-- /wp:query-pagination -->
+
+		</div>
+		<!-- /wp:query -->
+	</div>
+	<!-- /wp:group -->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","area":"footer","tagName":"footer"} /-->

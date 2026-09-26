@@ -1,0 +1,182 @@
+/*
+ * Postfolio Blocks — supplemental styles
+ *
+ * theme.json (Global Styles) drives color, typography and spacing.
+ * This file only covers things the Global Styles API cannot express:
+ * accessibility helpers, hover/focus states, and the small card-grid
+ * details that give the "post grid" patterns their editorial feel.
+ */
+
+/* ---------- Accessibility: skip link ---------- */
+.skip-link {
+	background: var( --wp--preset--color--contrast, #101014 );
+	color: var( --wp--preset--color--base, #fff );
+	padding: 0.75em 1.25em;
+	position: absolute;
+	left: 1rem;
+	top: -100px;
+	z-index: 100000;
+	border-radius: 0 0 0.5rem 0.5rem;
+	text-decoration: none;
+	transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+	top: 0;
+}
+
+.screen-reader-text {
+	border: 0;
+	clip: rect( 1px, 1px, 1px, 1px );
+	clip-path: inset( 50% );
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important;
+}
+
+.screen-reader-text:focus {
+	background-color: var( --wp--preset--color--base, #fff );
+	color: var( --wp--preset--color--contrast, #101014 );
+	clip: auto !important;
+	clip-path: none;
+	display: block;
+	height: auto;
+	left: 1rem;
+	top: 1rem;
+	width: auto;
+	z-index: 100000;
+	padding: 1em;
+	text-decoration: none;
+}
+
+/* ---------- Focus visibility ---------- */
+a:focus-visible,
+button:focus-visible,
+.wp-block-button__link:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+	outline: 2px solid var( --wp--preset--color--accent, #4f46e5 );
+	outline-offset: 2px;
+}
+
+/* ---------- Card pattern (post grids, spotlight, author bio) ---------- */
+.is-style-card {
+	background: var( --wp--preset--color--base, #fff );
+	border: 1px solid var( --wp--preset--color--base-2, #f3f3f6 );
+	border-radius: 1rem;
+	padding: var( --wp--preset--spacing--30, 1.5rem );
+	transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.is-style-card:hover {
+	transform: translateY( -4px );
+	box-shadow: 0 16px 32px rgba( 16, 16, 20, 0.08 );
+	border-color: var( --wp--preset--color--accent, #4f46e5 );
+}
+
+.is-style-card .wp-block-post-featured-image,
+.is-style-card > .wp-block-post-featured-image {
+	margin-top: calc( -1 * var( --wp--preset--spacing--30, 1.5rem ) );
+	margin-left: calc( -1 * var( --wp--preset--spacing--30, 1.5rem ) );
+	margin-right: calc( -1 * var( --wp--preset--spacing--30, 1.5rem ) );
+	margin-bottom: var( --wp--preset--spacing--20, 1rem );
+	border-radius: 1rem 1rem 0 0;
+	overflow: hidden;
+}
+
+.is-style-card .wp-block-post-featured-image img {
+	transition: transform 0.35s ease;
+	display: block;
+}
+
+.is-style-card:hover .wp-block-post-featured-image img {
+	transform: scale( 1.04 );
+}
+
+/* ---------- Rounded image style ---------- */
+.wp-block-image.is-style-rounded img {
+	border-radius: 999px;
+}
+
+/* ---------- Dot separator style ---------- */
+.wp-block-separator.is-style-dot {
+	background: none !important;
+	border: none;
+	text-align: center;
+	height: auto;
+	line-height: 1;
+}
+
+.wp-block-separator.is-style-dot::before {
+	content: '\2022 \2022 \2022';
+	color: var( --wp--preset--color--accent, #4f46e5 );
+	font-size: 1.25rem;
+	letter-spacing: 0.5em;
+	padding-left: 0.5em;
+}
+
+/* ---------- Category / tag badges used inside patterns ---------- */
+.postfolio-badge {
+	display: inline-flex;
+	align-items: center;
+	background: var( --wp--preset--color--base-2, #f3f3f6 );
+	color: var( --wp--preset--color--contrast, #101014 );
+	border-radius: 999px;
+	padding: 0.3em 0.9em;
+	font-size: var( --wp--preset--font-size--small, 0.875rem );
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+
+.postfolio-badge a {
+	color: inherit;
+	text-decoration: none;
+}
+
+/* Spotlight (Home 2) primary story overlay text stays legible on photos */
+.postfolio-spotlight-primary .wp-block-post-title a {
+	color: var( --wp--preset--color--base, #fff );
+}
+
+.postfolio-spotlight-primary .wp-block-post-title a:hover {
+	color: var( --wp--preset--color--base, #fff );
+	text-decoration: underline;
+}
+
+/* ---------- Author profile card ---------- */
+.postfolio-author-avatar img {
+	border-radius: 999px;
+	border: 4px solid var( --wp--preset--color--base, #fff );
+	box-shadow: 0 8px 24px rgba( 16, 16, 20, 0.12 );
+}
+
+/* ---------- Editorial list rows (Home 3 / archive alt) ---------- */
+.postfolio-row-item {
+	border-top: 1px solid var( --wp--preset--color--base-2, #f3f3f6 );
+	transition: background-color 0.2s ease;
+}
+
+.postfolio-row-item:hover {
+	background-color: var( --wp--preset--color--base-2, #f3f3f6 );
+}
+
+/* ---------- Comments ---------- */
+.wp-block-comment-template {
+	list-style: none;
+}
+
+/* ---------- Reduced motion ---------- */
+@media ( prefers-reduced-motion: reduce ) {
+	.is-style-card,
+	.is-style-card .wp-block-post-featured-image img,
+	.postfolio-row-item,
+	.skip-link {
+		transition: none !important;
+		transform: none !important;
+	}
+}
