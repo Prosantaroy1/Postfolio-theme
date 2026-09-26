@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Title: Post grid: Card grid
  * Slug: postfolio-blocks/post-grid-cards
- * Categories: postfolio-blocks, query, featured
+ * Categories: postfolio-blocks, postfolio-blocks-posts, query, featured
  * Description: A three-column card grid of recent posts — featured image, category badge, title, excerpt and byline — in the style of popular "advanced post" grid plugins, built entirely from Query Loop and core blocks.
  * Inserter: true
  *

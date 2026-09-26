@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Title: Post grid: Editorial list
  * Slug: postfolio-blocks/post-list-editorial
- * Categories: postfolio-blocks, query
+ * Categories: postfolio-blocks, postfolio-blocks-posts, query
  * Description: A dense, magazine-style numbered list of posts with a thumbnail, category, title and excerpt in each row. Used on the Home 3 layout.
  * Inserter: true
  *

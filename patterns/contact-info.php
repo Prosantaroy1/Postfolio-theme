@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Title: Contact info columns
  * Slug: postfolio-blocks/contact-info
- * Categories: postfolio-blocks, contact
+ * Categories: postfolio-blocks, postfolio-blocks-meta, contact
  * Description: A three-column contact block — email, location and social links — used as the main body of the Contact page.
  * Inserter: true
  *

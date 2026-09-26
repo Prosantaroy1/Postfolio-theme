@@ -1,0 +1,44 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Lavender",
+	"settings": {
+		"color": {
+			"palette": [
+				{ "slug": "base", "color": "#faf7fd", "name": "Base" },
+				{ "slug": "base-2", "color": "#f0e8f8", "name": "Base Muted" },
+				{ "slug": "contrast", "color": "#1e1329", "name": "Contrast" },
+				{ "slug": "contrast-2", "color": "#6b5b7b", "name": "Contrast Muted" },
+				{ "slug": "accent", "color": "#7c3aed", "name": "Accent Violet" },
+				{ "slug": "accent-2", "color": "#db2777", "name": "Accent Rose Pink" }
+			],
+			"gradients": [
+				{
+					"slug": "indigo-to-coral",
+					"gradient": "linear-gradient(135deg, #7c3aed 0%, #db2777 100%)",
+					"name": "Violet to Rose Pink"
+				}
+			]
+		}
+	},
+	"styles": {
+		"color": {
+			"background": "var(--wp--preset--color--base)",
+			"text": "var(--wp--preset--color--contrast)"
+		},
+		"elements": {
+			"button": {
+				"color": {
+					"background": "var(--wp--preset--color--contrast)",
+					"text": "var(--wp--preset--color--base)"
+				},
+				":hover": {
+					"color": {
+						"background": "var(--wp--preset--color--accent)",
+						"text": "#ffffff"
+					}
+				}
+			}
+		}
+	}
+}

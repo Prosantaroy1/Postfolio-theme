@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Title: Author profile card
  * Slug: postfolio-blocks/author-bio-card
- * Categories: postfolio-blocks, about
+ * Categories: postfolio-blocks, postfolio-blocks-meta, about
  * Description: Avatar, name, biographical description and post count for the queried author. Used at the top of the Author Profile template.
  * Inserter: true
  *

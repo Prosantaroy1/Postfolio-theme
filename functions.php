@@ -46,32 +46,35 @@ if ( ! function_exists( 'postfolio_blocks_setup' ) ) {
 		// Editor styles so the back end matches the front end.
 		add_theme_support( 'editor-styles' );
 		add_editor_style( 'assets/css/editor.css' );
-
-		// This theme uses Global Styles / theme.json for color & typography;
-		// no legacy custom-header, custom-background or nav menu locations
-		// are needed because Navigation, Cover and Site Logo blocks cover
-		// those use cases in the site editor.
+		add_editor_style( 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap' );
 	}
 }
 add_action( 'after_setup_theme', 'postfolio_blocks_setup' );
 
 if ( ! function_exists( 'postfolio_blocks_styles' ) ) {
 	/**
-	 * Enqueue the small supplemental stylesheet used for hover/focus
+	 * Enqueue the Google Fonts and small supplemental stylesheet used for hover/focus
 	 * states and other interactive details that theme.json cannot set.
 	 */
 	function postfolio_blocks_styles() {
 		wp_enqueue_style(
+			'postfolio-blocks-google-fonts',
+			'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap',
+			array(),
+			null
+		);
+
+		wp_enqueue_style(
 			'postfolio-blocks-style',
 			get_stylesheet_uri(),
-			array(),
+			array( 'postfolio-blocks-google-fonts' ),
 			wp_get_theme()->get( 'Version' )
 		);
 
 		wp_enqueue_style(
 			'postfolio-blocks-custom',
 			get_theme_file_uri( 'assets/css/custom.css' ),
-			array(),
+			array( 'postfolio-blocks-style' ),
 			wp_get_theme()->get( 'Version' )
 		);
 	}
@@ -80,17 +83,40 @@ add_action( 'wp_enqueue_scripts', 'postfolio_blocks_styles' );
 
 if ( ! function_exists( 'postfolio_blocks_pattern_categories' ) ) {
 	/**
-	 * Register a dedicated pattern category so all of this theme's
+	 * Register dedicated pattern categories so all of this theme's
 	 * bundled patterns are easy to find in the pattern inserter.
 	 */
 	function postfolio_blocks_pattern_categories() {
-		register_block_pattern_category(
-			'postfolio-blocks',
-			array(
-				'label'       => _x( 'Postfolio Blocks', 'Block pattern category', 'postfolio-blocks' ),
-				'description' => __( 'Layouts bundled with the Postfolio Blocks theme.', 'postfolio-blocks' ),
-			)
+		$categories = array(
+			'postfolio-blocks'              => array(
+				'label'       => _x( 'Postfolio — All', 'Block pattern category', 'postfolio-blocks' ),
+				'description' => __( 'All layouts bundled with the Postfolio Blocks theme.', 'postfolio-blocks' ),
+			),
+			'postfolio-blocks-posts'        => array(
+				'label'       => _x( 'Postfolio — Post Grids & Lists', 'Block pattern category', 'postfolio-blocks' ),
+				'description' => __( 'Magazine grids, editorial lists and spotlight layouts.', 'postfolio-blocks' ),
+			),
+			'postfolio-blocks-sections'     => array(
+				'label'       => _x( 'Postfolio — Heroes & CTAs', 'Block pattern category', 'postfolio-blocks' ),
+				'description' => __( 'Hero banners, announcement bars and call-to-action sections.', 'postfolio-blocks' ),
+			),
+			'postfolio-blocks-testimonials' => array(
+				'label'       => _x( 'Postfolio — Testimonials & Services', 'Block pattern category', 'postfolio-blocks' ),
+				'description' => __( 'Customer reviews, star ratings and service grid cards.', 'postfolio-blocks' ),
+			),
+			'postfolio-blocks-meta'         => array(
+				'label'       => _x( 'Postfolio — Author & Contact', 'Block pattern category', 'postfolio-blocks' ),
+				'description' => __( 'Author bio cards, social link profiles and contact blocks.', 'postfolio-blocks' ),
+			),
+			'postfolio-blocks-pages'        => array(
+				'label'       => _x( 'Postfolio — Page Layouts', 'Block pattern category', 'postfolio-blocks' ),
+				'description' => __( 'Full body page layouts for About, Contact and 404 pages.', 'postfolio-blocks' ),
+			),
 		);
+
+		foreach ( $categories as $slug => $args ) {
+			register_block_pattern_category( $slug, $args );
+		}
 	}
 }
 add_action( 'init', 'postfolio_blocks_pattern_categories' );
@@ -160,3 +186,9 @@ if ( ! function_exists( 'postfolio_blocks_excerpt_more' ) ) {
 	}
 }
 add_filter( 'excerpt_more', 'postfolio_blocks_excerpt_more' );
+
+/**
+ * Load Theme Admin Dashboard & Starter Site Importer.
+ */
+require_once get_template_directory() . '/inc/admin-dashboard.php';
+

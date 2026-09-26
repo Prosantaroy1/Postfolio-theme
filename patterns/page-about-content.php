@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Title: About page content
  * Slug: postfolio-blocks/page-about-content
- * Categories: postfolio-blocks, about
+ * Categories: postfolio-blocks, postfolio-blocks-pages, about
  * Description: An intro headline, a mission statement with image, a row of stat highlights and a values section — the full body content for an About page.
  * Inserter: true
  *

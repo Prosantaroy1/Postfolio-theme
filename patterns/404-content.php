@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Title: 404 content
  * Slug: postfolio-blocks/404-content
- * Categories: postfolio-blocks
+ * Categories: postfolio-blocks, postfolio-blocks-pages
  * Description: A centered "page not found" message with a search field and a button back to the homepage. Used on the 404 template.
  * Inserter: true
  *

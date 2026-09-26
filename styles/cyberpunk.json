@@ -1,0 +1,44 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Cyberpunk",
+	"settings": {
+		"color": {
+			"palette": [
+				{ "slug": "base", "color": "#0b0e14", "name": "Base" },
+				{ "slug": "base-2", "color": "#161b22", "name": "Base Muted" },
+				{ "slug": "contrast", "color": "#f0f6fc", "name": "Contrast" },
+				{ "slug": "contrast-2", "color": "#8b949e", "name": "Contrast Muted" },
+				{ "slug": "accent", "color": "#00f0ff", "name": "Accent Neon Cyan" },
+				{ "slug": "accent-2", "color": "#ff0055", "name": "Accent Neon Magenta" }
+			],
+			"gradients": [
+				{
+					"slug": "indigo-to-coral",
+					"gradient": "linear-gradient(135deg, #00f0ff 0%, #ff0055 100%)",
+					"name": "Cyan to Magenta"
+				}
+			]
+		}
+	},
+	"styles": {
+		"color": {
+			"background": "var(--wp--preset--color--base)",
+			"text": "var(--wp--preset--color--contrast)"
+		},
+		"elements": {
+			"button": {
+				"color": {
+					"background": "var(--wp--preset--color--accent)",
+					"text": "#0b0e14"
+				},
+				":hover": {
+					"color": {
+						"background": "var(--wp--preset--color--accent-2)",
+						"text": "#ffffff"
+					}
+				}
+			}
+		}
+	}
+}

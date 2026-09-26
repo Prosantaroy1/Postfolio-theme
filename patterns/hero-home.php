@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Title: Hero: Big statement
  * Slug: postfolio-blocks/hero-home
- * Categories: postfolio-blocks, banner
+ * Categories: postfolio-blocks, postfolio-blocks-sections, banner
  * Description: A full-width headline hero with a short standfirst and two call-to-action buttons, used at the top of the Home 1 layout.
  * Inserter: true
  *

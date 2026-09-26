@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Title: Call to action: Newsletter band
  * Slug: postfolio-blocks/cta-newsletter
- * Categories: postfolio-blocks, call-to-action
+ * Categories: postfolio-blocks, postfolio-blocks-sections, call-to-action
  * Description: A bold, full-width gradient band with a headline, short line of copy and a button — a general-purpose call-to-action for the end of a page or between post sections.
  * Inserter: true
  *

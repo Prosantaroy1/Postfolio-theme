@@ -3,7 +3,7 @@ Contributors: bplugins
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 7.4
-Version: 1.0.2
+Version: 1.0.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, entertainment, one-column, two-columns, grid-layout, custom-colors, custom-menu, editor-style, featured-images, full-site-editing, block-patterns, style-variations, rtl-language-support, translation-ready, wide-blocks, block-styles
@@ -86,6 +86,13 @@ Yes. This is a full block theme: the header and footer are editable template par
 Please use the theme's support forum on WordPress.org.
 
 == Changelog ==
+
+= 1.0.3 =
+* Feature: Added dedicated Postfolio Blocks Admin Dashboard page under Appearance with Welcome tab, Quick Action links, and Module controls.
+* Feature: Added Starter Sites tab with Coming Soon status for upcoming pre-built landing page releases.
+* Enhancement: Added 2 new landing page patterns (Starter Site — Portfolio Landing Page and Starter Site — Blog Landing Page).
+* Fix: Fully audited all pattern PHP files for 100% i18n translation readiness with esc_html__() wrappers.
+* Fix: Cleaned up theme layout boundaries for full-width responsive dashboard display.
 
 = 1.0.2 =
 * Fix: Added explicit copyright notice in style.css and readme.txt for GPL compliance.

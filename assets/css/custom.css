@@ -138,6 +138,19 @@ textarea:focus-visible {
 	text-decoration: none;
 }
 
+.postfolio-badge-white {
+	display: inline-flex;
+	align-items: center;
+	background: rgba(255, 255, 255, 0.2);
+	color: var( --wp--preset--color--base, #fff );
+	border-radius: 999px;
+	padding: 0.3em 0.9em;
+	font-size: var( --wp--preset--font-size--small, 0.875rem );
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+
 /* Spotlight (Home 2) primary story overlay text stays legible on photos */
 .postfolio-spotlight-primary .wp-block-post-title a {
 	color: var( --wp--preset--color--base, #fff );
@@ -180,3 +193,53 @@ textarea:focus-visible {
 		transform: none !important;
 	}
 }
+
+/* ---------- Typography Overrides (Poppins for Titles, Montserrat for Body/Buttons) ---------- */
+h1, h2, h3, h4, h5, h6,
+.wp-block-heading,
+.wp-block-site-title,
+.wp-block-post-title,
+.wp-block-post-title a,
+.editor-post-title__input {
+	font-family: 'Poppins', var( --wp--preset--font-family--poppins ), sans-serif;
+}
+
+body,
+p,
+li,
+a,
+input,
+textarea,
+button,
+.wp-block-button__link,
+.wp-block-navigation,
+.wp-element-button {
+	font-family: 'Montserrat', var( --wp--preset--font-family--montserrat ), sans-serif;
+}
+
+/* Page Title Medium Size Fix */
+.wp-block-post-title,
+.wp-block-post-title a,
+h1.wp-block-post-title,
+.editor-post-title__input {
+	font-size: clamp(1.5rem, 1.3rem + 1vw, 2.15rem) !important;
+	font-weight: 600 !important;
+	line-height: 1.25 !important;
+	letter-spacing: -0.01em !important;
+}
+
+/* ---------- Responsive Layout Adjustments ---------- */
+@media (max-width: 782px) {
+	.wp-block-columns {
+		flex-wrap: wrap !important;
+	}
+	.wp-block-column {
+		flex-basis: 100% !important;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+	}
+	.is-style-card {
+		padding: 1.25rem !important;
+	}
+}
+

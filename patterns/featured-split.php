@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Title: Post grid: Spotlight split
  * Slug: postfolio-blocks/featured-split
- * Categories: postfolio-blocks, query, featured
+ * Categories: postfolio-blocks, postfolio-blocks-posts, query, featured
  * Description: One large "lead story" with a photo and overlaid title next to a compact list of the next four posts. Used on the Home 2 layout.
  * Inserter: true
  *

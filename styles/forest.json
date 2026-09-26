@@ -1,0 +1,44 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Forest",
+	"settings": {
+		"color": {
+			"palette": [
+				{ "slug": "base", "color": "#f4f7f4", "name": "Base" },
+				{ "slug": "base-2", "color": "#e2ebe2", "name": "Base Muted" },
+				{ "slug": "contrast", "color": "#132a13", "name": "Contrast" },
+				{ "slug": "contrast-2", "color": "#4f6d4f", "name": "Contrast Muted" },
+				{ "slug": "accent", "color": "#2d6a4f", "name": "Accent Emerald" },
+				{ "slug": "accent-2", "color": "#d4a373", "name": "Accent Warm Oak" }
+			],
+			"gradients": [
+				{
+					"slug": "indigo-to-coral",
+					"gradient": "linear-gradient(135deg, #2d6a4f 0%, #d4a373 100%)",
+					"name": "Emerald to Oak"
+				}
+			]
+		}
+	},
+	"styles": {
+		"color": {
+			"background": "var(--wp--preset--color--base)",
+			"text": "var(--wp--preset--color--contrast)"
+		},
+		"elements": {
+			"button": {
+				"color": {
+					"background": "var(--wp--preset--color--contrast)",
+					"text": "var(--wp--preset--color--base)"
+				},
+				":hover": {
+					"color": {
+						"background": "var(--wp--preset--color--accent)",
+						"text": "#ffffff"
+					}
+				}
+			}
+		}
+	}
+}
