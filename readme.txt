@@ -1,5 +1,5 @@
 === Postfolio Blocks ===
-Contributors: bplugins
+Contributors: bplugins, prosanta10
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 7.4
