@@ -1,0 +1,41 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Mint",
+	"settings": {
+		"color": {
+			"palette": [
+				{
+					"slug": "base",
+					"color": "#f5fffb",
+					"name": "Base"
+				},
+				{
+					"slug": "base-2",
+					"color": "#dff7ee",
+					"name": "Base Muted"
+				},
+				{
+					"slug": "contrast",
+					"color": "#062a20",
+					"name": "Contrast"
+				},
+				{
+					"slug": "contrast-2",
+					"color": "#4b6f63",
+					"name": "Contrast Muted"
+				},
+				{
+					"slug": "accent",
+					"color": "#047857",
+					"name": "Accent"
+				},
+				{
+					"slug": "accent-2",
+					"color": "#6366f1",
+					"name": "Accent 2"
+				}
+			]
+		}
+	}
+}

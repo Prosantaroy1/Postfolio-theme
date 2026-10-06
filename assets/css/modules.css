@@ -1,0 +1,204 @@
+/*
+ * Postfolio Blocks — front-end modules.
+ * Loaded only when at least one module is enabled in the theme dashboard.
+ */
+
+/* ---------- Floating buttons ---------- */
+.postfolio-floating {
+	position: fixed;
+	bottom: max(1.25rem, env(safe-area-inset-bottom));
+	z-index: 90;
+	display: flex;
+	flex-direction: column;
+	gap: 0.6rem;
+}
+
+.postfolio-floating--end {
+	right: max(1.25rem, env(safe-area-inset-right));
+}
+
+.postfolio-floating--start {
+	left: max(1.25rem, env(safe-area-inset-left));
+}
+
+.postfolio-fab {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 3rem;
+	height: 3rem;
+	padding: 0;
+	border: 0;
+	border-radius: 999px;
+	background: var(--wp--preset--color--contrast, #101014);
+	color: var(--wp--preset--color--base, #fff);
+	box-shadow: var(--wp--preset--shadow--elevated, 0 12px 24px rgba(0, 0, 0, 0.2));
+	cursor: pointer;
+	text-decoration: none;
+	transition: transform 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.postfolio-fab:hover {
+	background: var(--wp--preset--color--accent, #4f46e5);
+	color: var(--wp--preset--color--base, #fff);
+	transform: translateY(-2px);
+}
+
+.postfolio-fab:focus-visible {
+	outline: 2px solid var(--wp--preset--color--accent, #4f46e5);
+	outline-offset: 3px;
+}
+
+.postfolio-fab[hidden] {
+	display: none;
+}
+
+.postfolio-fab--chat {
+	background: #128c4b;
+}
+
+/* ---------- Back to top ---------- */
+.postfolio-back-to-top.is-entering {
+	opacity: 0;
+	transform: translateY(8px);
+}
+
+/* ---------- Dark mode toggle ---------- */
+/* Moon while the page is light, sun while it is dark. */
+.postfolio-theme-toggle span {
+	display: inline-flex;
+}
+
+.postfolio-theme-toggle .postfolio-theme-toggle__light,
+.postfolio-is-dark .postfolio-theme-toggle .postfolio-theme-toggle__dark {
+	display: none;
+}
+
+.postfolio-is-dark .postfolio-theme-toggle .postfolio-theme-toggle__light {
+	display: inline-flex;
+}
+
+/* Button block style "Dark mode toggle". */
+.wp-block-button.is-style-theme-toggle .wp-block-button__link {
+	cursor: pointer;
+}
+
+html.postfolio-scheme-transition,
+html.postfolio-scheme-transition * {
+	transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
+}
+
+/* ---------- Reading progress ---------- */
+.postfolio-reading-progress {
+	position: fixed;
+	top: var(--wp-admin--admin-bar--height, 0px);
+	left: 0;
+	right: 0;
+	height: 4px;
+	z-index: 100;
+	pointer-events: none;
+}
+
+.postfolio-reading-progress__bar {
+	display: block;
+	height: 100%;
+	width: 100%;
+	transform: scaleX(var(--postfolio-progress, 0));
+	transform-origin: 0 50%;
+	background: linear-gradient(90deg, var(--wp--preset--color--accent, #4f46e5), var(--wp--preset--color--accent-2, #ff5a36));
+}
+
+/* ---------- Smart sticky header ---------- */
+.postfolio-has-smart-header .wp-site-blocks > header.wp-block-template-part {
+	position: sticky;
+	top: var(--wp-admin--admin-bar--height, 0px);
+	z-index: 60;
+	background-color: var(--wp--preset--color--base, #fff);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.postfolio-has-smart-header .wp-site-blocks > header.wp-block-template-part.is-scrolled {
+	box-shadow: var(--wp--preset--shadow--soft, 0 2px 8px rgba(0, 0, 0, 0.08));
+}
+
+.postfolio-has-smart-header .wp-site-blocks > header.wp-block-template-part.is-hidden {
+	transform: translateY(-100%);
+}
+
+/* A header that is meant to overlay the page keeps its own positioning. */
+.postfolio-has-smart-header .wp-site-blocks > header.wp-block-template-part:has(> .postfolio-is-transparent) {
+	position: absolute;
+	background-color: transparent;
+}
+
+/* ---------- Scroll animations ---------- */
+.postfolio-animations-ready .postfolio-reveal {
+	opacity: 0;
+	transform: translateY(24px);
+	transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.postfolio-animations-ready .postfolio-reveal.is-visible {
+	opacity: 1;
+	transform: none;
+}
+
+/* ---------- Footer reveal ---------- */
+.postfolio-footer-reveal-ready .wp-site-blocks > :not(footer) {
+	position: relative;
+	z-index: 1;
+	background-color: var(--wp--preset--color--base, #fff);
+}
+
+.postfolio-footer-reveal-ready .wp-site-blocks > footer.wp-block-template-part {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 0;
+}
+
+.postfolio-footer-reveal-ready .wp-site-blocks {
+	margin-bottom: var(--postfolio-footer-height, 0px);
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 600px) {
+	.postfolio-floating {
+		gap: 0.45rem;
+		bottom: max(0.75rem, env(safe-area-inset-bottom));
+	}
+
+	.postfolio-floating--end {
+		right: max(0.75rem, env(safe-area-inset-right));
+	}
+
+	.postfolio-floating--start {
+		left: max(0.75rem, env(safe-area-inset-left));
+	}
+
+	.postfolio-fab {
+		width: 2.5rem;
+		height: 2.5rem;
+	}
+}
+
+@media print {
+	.postfolio-floating,
+	.postfolio-reading-progress {
+		display: none !important;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.postfolio-fab,
+	.postfolio-animations-ready .postfolio-reveal,
+	.postfolio-has-smart-header .wp-site-blocks > header.wp-block-template-part {
+		transition: none !important;
+	}
+
+	.postfolio-animations-ready .postfolio-reveal {
+		opacity: 1;
+		transform: none;
+	}
+}

@@ -2,15 +2,15 @@
 Theme Name: Postfolio Blocks
 Author: bPlugins
 Author URI: https://bplugins.com
-Description: A bold, contemporary full-site-editing block theme built for modern blogs and online magazines. Postfolio Blocks ships with three switchable homepage layouts (Home 1, Home 2, Home 3), a complete set of front-end templates — single post, blog index, category archive, author profile, search, and 404 — and a library of card-grid, split-hero, and spotlight block patterns composed entirely from core WordPress blocks, so every layout keeps the punchy, editorial post-grid look of popular post-listing plugins without requiring any of them to be installed. Deep color, spacing, and typography controls are exposed through the Styles panel via theme.json, and three ready-made style variations let you re-skin the whole site in one click.
-Requires at least: 6.6
+Description: A bold, contemporary full-site-editing block theme for blogs, online magazines and portfolios. Postfolio Blocks ships with three switchable homepage layouts, 22 templates (including post layouts with sidebar, cover hero and wide content, a landing page with transparent header and a blank canvas), 57 block patterns and one-click starter sites — all built from core WordPress blocks. Seven style variations, eight color palettes, six font pairings and five section styles re-skin the site in one click, with self-hosted fonts and accessible contrast. Blog tools include reading time, related and popular posts, share buttons and an automatic table of contents, and optional modules add dark mode, a reading progress bar, a smart sticky header and more.
+Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 7.4
-Version: 1.0.3
+Version: 1.1.0
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: postfolio-blocks
-Tags: blog, entertainment, one-column, two-columns, grid-layout, custom-colors, custom-menu, editor-style, featured-images, full-site-editing, block-patterns, style-variations, rtl-language-support, translation-ready, wide-blocks, block-styles
+Tags: blog, news, portfolio, one-column, two-columns, three-columns, four-columns, right-sidebar, grid-layout, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, full-width-template, block-patterns, block-styles, style-variations, template-editing, theme-options, threaded-comments, rtl-language-support, translation-ready, wide-blocks
 
 Postfolio Blocks WordPress Theme, Copyright (C) 2026 bPlugins
 Postfolio Blocks is distributed under the terms of the GNU GPL v2 (or later).

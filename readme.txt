@@ -1,91 +1,116 @@
 === Postfolio Blocks ===
 Contributors: bplugins, prosanta10
-Requires at least: 6.6
+Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 7.4
-Version: 1.0.3
+Version: 1.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
-Tags: blog, entertainment, one-column, two-columns, grid-layout, custom-colors, custom-menu, editor-style, featured-images, full-site-editing, block-patterns, style-variations, rtl-language-support, translation-ready, wide-blocks, block-styles
+Tags: blog, news, portfolio, one-column, two-columns, three-columns, four-columns, right-sidebar, grid-layout, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, full-width-template, block-patterns, block-styles, style-variations, template-editing, theme-options, threaded-comments, rtl-language-support, translation-ready, wide-blocks
 
-A bold, contemporary full-site-editing block theme for modern blogs and online magazines, with three switchable homepage layouts and a card-grid pattern library built entirely from core WordPress blocks.
+A bold, contemporary block theme for blogs, online magazines and portfolios — with 57 patterns, 22 templates, one-click starter sites, dark mode and a full set of blog tools built from core blocks.
 
 == Description ==
 
-Postfolio Blocks is a full-site-editing (FSE) block theme built for independent blogs, online magazines and personal publications that want a modern, editorial look without installing a page builder.
+Postfolio Blocks is a full-site-editing (FSE) block theme for independent blogs, online magazines, news sites and creative portfolios that want a modern, editorial look without installing a page builder. Everything is built from core WordPress blocks, so your content keeps working with any block theme.
 
-The theme ships with three homepage layouts you can switch between at any time:
+= Layouts =
 
-* **Home 1 — Statement**: a large headline hero followed by a three-column "latest stories" card grid.
-* **Home 2 — Spotlight**: one large lead story with an image overlay next to a compact list of the next four posts.
-* **Home 3 — Editorial list**: a quieter, list-first layout with a numbered reading list of recent posts.
+* **Three homepage layouts**: Home 1 (Statement), Home 2 (Spotlight) and Home 3 (Editorial List).
+* **22 templates**: blog index, front page, three homepages, four single-post layouts (default, with sidebar, cover hero, wide), five page layouts (default, no title, full width, with sidebar, landing page with transparent header), blank canvas, category, tag, date, author, archive, search and 404.
+* **15 template parts**: 7 headers (including sticky and transparent), 5 footers, sidebar, post meta and comments — swap them in the Site Editor.
+* **57 block patterns**: post grids and lists, heroes, calls to action, services, pricing, team, testimonials, FAQ, portfolio grid, case study, logo cloud, stats, timeline, gallery, events, careers, process steps and features.
+* **Page starters**: when you create a new page, pick a ready-made Landing, Services, Portfolio, About, Contact, Blog or Portfolio landing layout.
 
-Beyond the homepage, Postfolio Blocks includes a complete, purpose-built template for every part of a content-driven site: a blog index, single post ("blog details") pages with author bio and threaded comments, category/tag archives, a dedicated author profile page, search results, and a 404 page.
+= Styles =
 
-Every layout is composed from a library of block patterns — card grids, spotlight splits, editorial lists, author cards, contact info columns, an about-page layout and a call-to-action band — built entirely from core WordPress blocks (Query Loop, Group, Columns, Cover, Post Featured Image, and so on). The result deliberately echoes the punchy, image-forward post-grid layouts popularised by third-party "advanced post" grid plugins, but Postfolio Blocks never requires any plugin to look or work correctly: every pattern renders correctly on a stock WordPress install.
+* 7 complete style variations (Midnight, Cyberpunk, Forest, Lavender, Nordic, Retro, Sunset) that change colors, fonts and button shapes.
+* 8 extra color palettes and 6 font pairings that can be mixed with any style.
+* 5 section styles (Dark, Accent, Muted, Gradient, Bordered) for Group, Columns and Column blocks, plus Card, Rounded, Dot and Pill block styles.
+* Shadow presets, custom aspect ratios and a fluid type scale.
+* Six self-hosted fonts (Poppins, Montserrat, Manrope, Lora, Playfair Display) — no requests to third-party font services.
+* Every palette meets WCAG AA contrast for text, muted text and links.
 
-Deep color, typography and spacing controls are exposed through the Styles panel via theme.json, including a bundled variable web font (Manrope), a fluid type scale, a custom color palette, and two additional one-click style variations ("Midnight" and "Sunset") for re-skinning the whole site.
+= Blog tools =
 
-= Key features =
+* Reading time, author box, category pills and previous/next links on every post.
+* Related posts (same categories), popular posts (most commented), share buttons for the current post and an automatic table of contents.
+* A sidebar with search, about card, popular posts, categories, tags and a newsletter box.
 
-* Three switchable homepage layouts (Home 1, Home 2, Home 3) selectable per-page from Page Attributes → Template.
-* Full template set: front page, blog index, single post, page, category/tag archive, author profile, search, and 404.
-* A library of reusable block patterns for post grids, hero sections, author bios, contact info, about-page content and calls to action — all core-block based.
-* Global Styles support via theme.json: custom palette, fluid font sizes, spacing scale, and a self-hosted variable font.
-* Three style variations: the default "Bold Contemporary" look, plus "Midnight" (dark) and "Sunset" (warm) palettes.
-* Full support for the Site Editor, template editing, and block-based widgets areas (header and footer are editable template parts).
-* Threaded comments, post navigation, and a real author-biography section on every single post.
-* Translation ready and right-to-left (RTL) friendly, with no hard-coded left/right assumptions in layout.
-* Accessibility-conscious: visible focus states, a skip-to-content link, reduced-motion support, and sufficient color contrast in the default palette.
+= Modules (Appearance → Postfolio Blocks → Modules) =
 
-= A note on plugin compatibility =
+All modules are off by default. Turn on only what you need — each module loads its small script and stylesheet only when enabled:
 
-Postfolio Blocks was designed with the visual language of popular post-grid and content-block plugins in mind — card grids, category badges, spotlight layouts — but every pattern in this theme is built from core WordPress blocks only, so the theme never depends on any third-party plugin to render correctly. If you do run a post-grid or content-block plugin, its blocks will simply sit alongside this theme's own patterns; nothing here conflicts with or hides plugin functionality.
+* Dark mode toggle (the dark palette is generated from your current colors)
+* Back to top button
+* Reading progress bar
+* Smart sticky header
+* Scroll animations (respects reduced-motion settings)
+* Footer reveal effect
+* Floating call / email / WhatsApp buttons
+
+= One-click starter sites =
+
+Personal Blog, Online Magazine, Editorial News, Creative Portfolio and Business & Agency. Each creates its pages from the theme patterns, sets the homepage and can optionally apply a matching style. Importing again updates the same pages instead of duplicating them.
 
 == Installation ==
 
-= From within WordPress =
-
 1. Go to Appearance → Themes → Add New.
-2. Search for "Postfolio Blocks".
-3. Click Install, then click Activate.
-
-= Uploading in WordPress =
-
-1. Go to Appearance → Themes → Add New → Upload Theme.
-2. Upload the postfolio-blocks.zip file.
-3. Click Install Now, then click Activate.
-
-= Choosing a homepage layout =
-
-1. Create (or edit) a Page for your homepage.
-2. In the Page panel, open Template under "Template" and choose "Home 2 (Spotlight)" or "Home 3 (Editorial List)" — leave the default template for the "Home 1 (Statement)" look.
-3. Go to Settings → Reading and set that page as your "Homepage displays: A static page" front page.
-4. Optionally create a second page (e.g. "Blog") and set it as the "Posts page" so your latest posts also have a dedicated URL.
+2. Search for "Postfolio Blocks", click Install, then Activate.
+3. Open Appearance → Postfolio Blocks to import a starter site or turn on modules.
 
 == Frequently Asked Questions ==
 
-= Does this theme require any plugin to work? =
+= Does this theme require any plugin? =
 
-No. Every template and pattern in Postfolio Blocks is built entirely from WordPress core blocks. The theme's visual style was inspired by popular post-grid/content-block plugins, but it does not require, bundle, or depend on any of them.
+No. Every template and pattern is built from WordPress core blocks only.
 
 = How do I switch between Home 1, Home 2 and Home 3? =
 
-Each style is a separate page template. Create or edit a page, choose the template you want from the Page panel's Template dropdown, and set that page as your site's static front page under Settings → Reading. See "Choosing a homepage layout" above.
+Create or edit a page, choose "Home 2 (Spotlight)" or "Home 3 (Editorial List)" in the page's Template setting (leave the default for Home 1), then set that page as your homepage under Settings → Reading. A starter site does this for you.
+
+= How do I add related posts, share buttons or a table of contents? =
+
+They are already part of the single post templates. To add them anywhere else, insert the "Related posts", "Share buttons" or "Table of contents" pattern from the Postfolio — Blog Extras category.
+
+= How do I put a dark mode switch in my header? =
+
+Turn on the Dark mode module, then add a Button block to your header and choose the "Dark mode toggle" style for it. A floating switch is also shown by default.
 
 = Can I change the colors and fonts? =
 
-Yes. Open the Site Editor and go to Styles to adjust colors, typography and layout, or switch to one of the two bundled style variations ("Midnight" or "Sunset") for a one-click re-skin.
+Yes. Open Appearance → Editor → Styles to pick a style variation, a color palette or a font pairing, or adjust everything by hand.
 
-= Does Postfolio Blocks support the block-based widgets and full site editing? =
+= Will the theme load fonts from Google? =
 
-Yes. This is a full block theme: the header and footer are editable template parts, and every template (front page, single post, archive, author, search, 404, etc.) can be edited directly in the Site Editor.
-
-= Where do I report bugs or request features? =
-
-Please use the theme's support forum on WordPress.org.
+No. All fonts are bundled with the theme and served from your own site.
 
 == Changelog ==
+
+= 1.1.0 =
+* Accessibility: Every button and link has a real destination (no "#" placeholders), so all of them can be reached and used with the keyboard.
+* Accessibility: Navigation keeps parent menu items as links; submenus open with their own toggle button, by keyboard or pointer.
+* Accessibility: Search fields always have an accessible label; newsletter areas no longer use a search box as a fake sign-up form.
+* i18n: All text in template parts and templates moved into PHP patterns and wrapped in translation functions; the copyright year is now dynamic.
+* Change: All modules are off by default, and every feature is free — the dashboard lists them under "All Features".
+* Fix: Every pattern, template and template part now passes the block editor's validation on WordPress 6.9, 7.0 and 7.1 — no more "Block contains unexpected or invalid content" messages.
+* Fix: Badge paragraphs no longer turn into nested paragraphs when edited.
+* Fix: Template part "Header 05" showed empty button labels because PHP does not run inside .html files.
+* Fix: Header and footer parts no longer nest a second header/footer landmark.
+* Fix: Fonts are bundled locally; removed all requests to Google Fonts.
+* Fix: Font and title CSS overrides were removed so Global Styles, style variations and font presets work again.
+* Fix: Columns respect the "Stack on mobile" setting; tablet layouts for rows of four columns.
+* Fix: The dashboard's module switches and starter-site import now actually work, and all counts are accurate.
+* Feature: 24 new patterns (57 in total), including blog extras, portfolio, case study, logo cloud, stats, timeline, gallery, events, careers, process, features, pricing and page starters.
+* Feature: 11 new templates — four post layouts, five page layouts (including landing page and blank canvas), category, tag and date archives.
+* Feature: 6 new template parts — sticky and transparent headers, minimal footer, sidebar, post meta and comments.
+* Feature: Style variations now change typography and button shapes; added 8 color palettes, 6 font pairings, 5 section styles and a Pill style for categories and tags.
+* Feature: Shadow presets and custom aspect ratios.
+* Feature: Reading time, related posts, popular posts, share buttons and automatic table of contents.
+* Feature: Modules — dark mode, back to top, reading progress, smart sticky header, scroll animations, footer reveal and floating contact buttons.
+* Feature: Five one-click starter sites.
+* Enhancement: Original SVG artwork replaces the screenshot used as placeholder images.
+* Enhancement: Accessible color contrast in every palette; PHP code follows the WordPress Coding Standards.
 
 = 1.0.3 =
 * Feature: Added dedicated Postfolio Blocks Admin Dashboard page under Appearance with Welcome tab, Quick Action links, and Module controls.
@@ -112,11 +137,18 @@ Postfolio Blocks is distributed under the terms of the GNU GPL v2 (or later).
 
 Postfolio Blocks bundles the following third-party resources:
 
-* Manrope Variable Font, Copyright 2018 The Manrope Project Authors (https://github.com/sharanda/manrope).
-  License: SIL Open Font License, 1.1. Included at assets/fonts/, license text included at assets/fonts/manrope-OFL-1.1.txt.
-  Source: https://fontsource.org/fonts/manrope
+* Manrope, Copyright 2019 The Manrope Project Authors (https://github.com/sharanda/manrope).
+  License: SIL Open Font License, 1.1. License text: assets/fonts/manrope-OFL-1.1.txt.
+* Poppins, Copyright 2020 The Poppins Project Authors (https://github.com/itfoundry/Poppins).
+  License: SIL Open Font License, 1.1. License text: assets/fonts/poppins-OFL-1.1.txt.
+* Montserrat, Copyright 2011 The Montserrat Project Authors (https://github.com/JulietaUla/Montserrat).
+  License: SIL Open Font License, 1.1. License text: assets/fonts/montserrat-OFL-1.1.txt.
+* Lora, Copyright 2011 The Lora Project Authors (https://github.com/cyrealtype/Lora-Cyrillic).
+  License: SIL Open Font License, 1.1. License text: assets/fonts/lora-OFL-1.1.txt.
+* Playfair Display, Copyright 2017 The Playfair Display Project Authors (https://github.com/clauseggers/Playfair-Display).
+  License: SIL Open Font License, 1.1. License text: assets/fonts/playfair-display-OFL-1.1.txt.
 
-All other code, markup, patterns and templates in this theme are original work created for Postfolio Blocks and are licensed under the GPLv2 (or later), the same as WordPress. The screenshot (screenshot.png) is original artwork created for this theme and is likewise released under the GPLv2 (or later).
+All other code, markup, patterns, templates and images in this theme — including the illustrations in assets/images and the screenshot — are original work created for Postfolio Blocks and are licensed under the GPLv2 (or later), the same as WordPress.
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.

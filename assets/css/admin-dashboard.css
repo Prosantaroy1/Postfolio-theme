@@ -110,7 +110,8 @@
 	box-shadow: 0 1px 2px rgba(0,0,0,0.03);
 }
 
-.postfolio-banner-content h1 {
+.postfolio-banner-content h1,
+.postfolio-banner-content h2 {
 	font-size: 24px;
 	font-weight: 700;
 	color: #0f172a;
@@ -184,7 +185,7 @@
 /* Quick Actions Grid */
 .postfolio-grid-3 {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
 	gap: 16px;
 }
 
@@ -327,7 +328,7 @@ input:checked + .postfolio-slider:before {
 /* Starter Sites Cards */
 .postfolio-starter-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
 	gap: 24px;
 	margin-top: 20px;
 }
@@ -573,4 +574,126 @@ input:checked + .postfolio-slider:before {
 	background: #fee2e2;
 	color: #991b1b;
 	border: 1px solid #fecaca;
+}
+
+/* ---------- Overview stats ---------- */
+.postfolio-stats {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+	gap: 16px;
+	margin: 0 0 32px;
+	padding: 0;
+	list-style: none;
+}
+
+.postfolio-stats li {
+	background: #ffffff;
+	border: 1px solid #e2e8f0;
+	border-radius: 12px;
+	padding: 18px 20px;
+	margin: 0;
+}
+
+.postfolio-stats strong {
+	display: block;
+	font-size: 28px;
+	line-height: 1.1;
+	color: #4f46e5;
+}
+
+.postfolio-stats span {
+	color: #64748b;
+	font-size: 13px;
+}
+
+/* ---------- Module settings ---------- */
+.postfolio-settings-panel {
+	background: #ffffff;
+	border: 1px solid #e2e8f0;
+	border-radius: 12px;
+	padding: 8px 24px;
+	max-width: 720px;
+}
+
+.postfolio-settings-panel label {
+	display: block;
+	font-weight: 600;
+	margin-bottom: 6px;
+	color: #0f172a;
+}
+
+.postfolio-settings-panel select,
+.postfolio-settings-panel input {
+	max-width: 100%;
+}
+
+/* ---------- Starter sites ---------- */
+.postfolio-starter-intro {
+	max-width: 760px;
+	color: #475569;
+	font-size: 14px;
+}
+
+.postfolio-apply-style {
+	display: flex;
+	gap: 8px;
+	align-items: flex-start;
+	margin: 0 0 24px;
+	color: #0f172a;
+	font-weight: 500;
+}
+
+.postfolio-apply-style input {
+	margin-top: 2px;
+}
+
+.postfolio-starter-desc {
+	margin: 4px 0 12px;
+	font-size: 13px;
+	color: #64748b;
+	line-height: 1.5;
+}
+
+.postfolio-starter-footer {
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.postfolio-starter-actions {
+	width: 100%;
+}
+
+.postfolio-starter-actions .postfolio-btn-import {
+	width: 100%;
+	justify-content: center;
+}
+
+.postfolio-comparison-table tbody th {
+	text-align: left;
+	font-weight: 600;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 960px) {
+	.postfolio-dashboard-navbar {
+		flex-wrap: wrap;
+		gap: 12px;
+	}
+}
+
+@media (max-width: 600px) {
+	.postfolio-dashboard-banner {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 16px;
+	}
+
+	.postfolio-nav-tabs {
+		flex-wrap: wrap;
+	}
+
+	.postfolio-comparison-table {
+		display: block;
+		overflow-x: auto;
+	}
 }

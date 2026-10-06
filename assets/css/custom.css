@@ -1,16 +1,16 @@
 /*
  * Postfolio Blocks — supplemental styles
  *
- * theme.json (Global Styles) drives color, typography and spacing.
- * This file only covers things the Global Styles API cannot express:
- * accessibility helpers, hover/focus states, and the small card-grid
- * details that give the "post grid" patterns their editorial feel.
+ * theme.json (Global Styles) drives color, typography and spacing, so the
+ * Styles panel, style variations and font presets always win. This file only
+ * covers what Global Styles cannot express: accessibility helpers, hover and
+ * focus states, small pattern details and responsive refinements.
  */
 
-/* ---------- Accessibility: skip link ---------- */
+/* ---------- Accessibility ---------- */
 .skip-link {
-	background: var( --wp--preset--color--contrast, #101014 );
-	color: var( --wp--preset--color--base, #fff );
+	background: var(--wp--preset--color--contrast, #101014);
+	color: var(--wp--preset--color--base, #fff);
 	padding: 0.75em 1.25em;
 	position: absolute;
 	left: 1rem;
@@ -27,8 +27,8 @@
 
 .screen-reader-text {
 	border: 0;
-	clip: rect( 1px, 1px, 1px, 1px );
-	clip-path: inset( 50% );
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
 	height: 1px;
 	margin: -1px;
 	overflow: hidden;
@@ -39,8 +39,8 @@
 }
 
 .screen-reader-text:focus {
-	background-color: var( --wp--preset--color--base, #fff );
-	color: var( --wp--preset--color--contrast, #101014 );
+	background-color: var(--wp--preset--color--base, #fff);
+	color: var(--wp--preset--color--contrast, #101014);
 	clip: auto !important;
 	clip-path: none;
 	display: block;
@@ -53,37 +53,49 @@
 	text-decoration: none;
 }
 
-/* ---------- Focus visibility ---------- */
 a:focus-visible,
 button:focus-visible,
+summary:focus-visible,
 .wp-block-button__link:focus-visible,
 input:focus-visible,
+select:focus-visible,
 textarea:focus-visible {
-	outline: 2px solid var( --wp--preset--color--accent, #4f46e5 );
+	outline: 2px solid var(--wp--preset--color--accent, #4f46e5);
 	outline-offset: 2px;
 }
 
-/* ---------- Card pattern (post grids, spotlight, author bio) ---------- */
+/* ---------- Content safety ---------- */
+.wp-block-post-content,
+.wp-block-post-title,
+.wp-block-comment-content {
+	overflow-wrap: break-word;
+}
+
+.wp-block-table {
+	overflow-x: auto;
+}
+
+/* ---------- Card style (Group → Styles → Card) ---------- */
 .is-style-card {
-	background: var( --wp--preset--color--base, #fff );
-	border: 1px solid var( --wp--preset--color--base-2, #f3f3f6 );
+	background: var(--wp--preset--color--base, #fff);
+	border: 1px solid var(--wp--preset--color--base-2, #f3f3f6);
 	border-radius: 1rem;
-	padding: var( --wp--preset--spacing--30, 1.5rem );
+	padding: var(--wp--preset--spacing--30, 1.5rem);
 	transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .is-style-card:hover {
-	transform: translateY( -4px );
-	box-shadow: 0 16px 32px rgba( 16, 16, 20, 0.08 );
-	border-color: var( --wp--preset--color--accent, #4f46e5 );
+	transform: translateY(-4px);
+	box-shadow: var(--wp--preset--shadow--card);
+	border-color: var(--wp--preset--color--accent, #4f46e5);
 }
 
 .is-style-card .wp-block-post-featured-image,
 .is-style-card > .wp-block-post-featured-image {
-	margin-top: calc( -1 * var( --wp--preset--spacing--30, 1.5rem ) );
-	margin-left: calc( -1 * var( --wp--preset--spacing--30, 1.5rem ) );
-	margin-right: calc( -1 * var( --wp--preset--spacing--30, 1.5rem ) );
-	margin-bottom: var( --wp--preset--spacing--20, 1rem );
+	margin-top: calc(-1 * var(--wp--preset--spacing--30, 1.5rem));
+	margin-left: calc(-1 * var(--wp--preset--spacing--30, 1.5rem));
+	margin-right: calc(-1 * var(--wp--preset--spacing--30, 1.5rem));
+	margin-bottom: var(--wp--preset--spacing--20, 1rem);
 	border-radius: 1rem 1rem 0 0;
 	overflow: hidden;
 }
@@ -94,15 +106,14 @@ textarea:focus-visible {
 }
 
 .is-style-card:hover .wp-block-post-featured-image img {
-	transform: scale( 1.04 );
+	transform: scale(1.04);
 }
 
-/* ---------- Rounded image style ---------- */
+/* ---------- Image & separator styles ---------- */
 .wp-block-image.is-style-rounded img {
 	border-radius: 999px;
 }
 
-/* ---------- Dot separator style ---------- */
 .wp-block-separator.is-style-dot {
 	background: none !important;
 	border: none;
@@ -112,134 +123,300 @@ textarea:focus-visible {
 }
 
 .wp-block-separator.is-style-dot::before {
-	content: '\2022 \2022 \2022';
-	color: var( --wp--preset--color--accent, #4f46e5 );
+	content: "\2022 \2022 \2022";
+	color: var(--wp--preset--color--accent, #4f46e5);
 	font-size: 1.25rem;
 	letter-spacing: 0.5em;
 	padding-left: 0.5em;
 }
 
-/* ---------- Category / tag badges used inside patterns ---------- */
-.postfolio-badge {
+/* ---------- Badges & pills ---------- */
+.postfolio-badge,
+.postfolio-badge-white {
 	display: inline-flex;
 	align-items: center;
-	background: var( --wp--preset--color--base-2, #f3f3f6 );
-	color: var( --wp--preset--color--contrast, #101014 );
 	border-radius: 999px;
 	padding: 0.3em 0.9em;
-	font-size: var( --wp--preset--font-size--small, 0.875rem );
+	font-size: var(--wp--preset--font-size--small, 0.875rem);
 	font-weight: 700;
 	text-transform: uppercase;
 	letter-spacing: 0.04em;
 }
 
-.postfolio-badge a {
+.postfolio-badge {
+	background: var(--wp--preset--color--base-2, #f3f3f6);
+	color: var(--wp--preset--color--contrast, #101014);
+}
+
+.postfolio-badge-white {
+	background: rgba(255, 255, 255, 0.2);
+	color: var(--wp--preset--color--base, #fff);
+}
+
+.postfolio-badge a,
+.postfolio-badge-white a {
 	color: inherit;
 	text-decoration: none;
 }
 
-.postfolio-badge-white {
-	display: inline-flex;
-	align-items: center;
-	background: rgba(255, 255, 255, 0.2);
-	color: var( --wp--preset--color--base, #fff );
-	border-radius: 999px;
-	padding: 0.3em 0.9em;
-	font-size: var( --wp--preset--font-size--small, 0.875rem );
-	font-weight: 700;
-	text-transform: uppercase;
-	letter-spacing: 0.04em;
+p.has-text-align-center.postfolio-badge {
+	display: table;
+	margin-left: auto;
+	margin-right: auto;
 }
 
-/* Spotlight (Home 2) primary story overlay text stays legible on photos */
-.postfolio-spotlight-primary .wp-block-post-title a {
-	color: var( --wp--preset--color--base, #fff );
+.postfolio-pill {
+	display: inline-block;
+}
+
+/* ---------- Pattern details ---------- */
+.postfolio-spotlight-primary .wp-block-post-title a,
+.postfolio-spotlight-primary .wp-block-post-title a:hover {
+	color: var(--wp--preset--color--base, #fff);
 }
 
 .postfolio-spotlight-primary .wp-block-post-title a:hover {
-	color: var( --wp--preset--color--base, #fff );
 	text-decoration: underline;
 }
 
-/* ---------- Author profile card ---------- */
-.postfolio-author-avatar img {
-	border-radius: 999px;
-	border: 4px solid var( --wp--preset--color--base, #fff );
-	box-shadow: 0 8px 24px rgba( 16, 16, 20, 0.12 );
+.postfolio-bento-primary .wp-block-cover__inner-container {
+	align-self: stretch;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
-/* ---------- Editorial list rows (Home 3 / archive alt) ---------- */
+.postfolio-author-avatar img {
+	border-radius: 999px;
+	border: 4px solid var(--wp--preset--color--base, #fff);
+	box-shadow: var(--wp--preset--shadow--card);
+}
+
 .postfolio-row-item {
-	border-top: 1px solid var( --wp--preset--color--base-2, #f3f3f6 );
+	border-top: 1px solid var(--wp--preset--color--base-2, #f3f3f6);
 	transition: background-color 0.2s ease;
 }
 
 .postfolio-row-item:hover {
-	background-color: var( --wp--preset--color--base-2, #f3f3f6 );
+	background-color: var(--wp--preset--color--base-2, #f3f3f6);
 }
 
-/* ---------- Comments ---------- */
+.postfolio-faq-item summary {
+	font-weight: 600;
+	font-size: 1.1rem;
+	cursor: pointer;
+}
+
 .wp-block-comment-template {
 	list-style: none;
+	padding-left: 0;
+}
+
+/* Logo cloud: calm logos that light up on hover. */
+.postfolio-logo-cloud img {
+	filter: grayscale(1);
+	opacity: 0.7;
+	transition: filter 0.2s ease, opacity 0.2s ease;
+}
+
+.postfolio-logo-cloud figure:hover img {
+	filter: none;
+	opacity: 1;
+}
+
+/* Timeline: a vertical rule with a dot per item. */
+.postfolio-timeline {
+	position: relative;
+	padding-left: 2rem;
+}
+
+.postfolio-timeline::before {
+	content: "";
+	position: absolute;
+	left: 0.45rem;
+	top: 0.4rem;
+	bottom: 0.4rem;
+	width: 2px;
+	background: var(--wp--preset--color--base-2, #f3f3f6);
+}
+
+.postfolio-timeline-item {
+	position: relative;
+}
+
+.postfolio-timeline-item::before {
+	content: "";
+	position: absolute;
+	left: -1.85rem;
+	top: 0.35rem;
+	width: 0.9rem;
+	height: 0.9rem;
+	border-radius: 999px;
+	background: var(--wp--preset--color--accent, #4f46e5);
+	box-shadow: 0 0 0 4px var(--wp--preset--color--base, #fff);
+}
+
+/* Stats: tabular numbers so counters line up. */
+.postfolio-stat-number {
+	font-variant-numeric: tabular-nums;
+	line-height: 1;
+}
+
+/* Process steps: numbered circles. */
+.postfolio-step-number,
+p.postfolio-step-number.has-background {
+	display: inline-flex;
+	padding: 0;
+	box-sizing: border-box;
+	align-items: center;
+	justify-content: center;
+	width: 2.75rem;
+	height: 2.75rem;
+	border-radius: 999px;
+}
+
+/* ---------- Blog features ---------- */
+.postfolio-toc ol,
+.postfolio-toc ul {
+	margin: 0;
+	padding-left: 1.1rem;
+}
+
+.postfolio-toc li {
+	margin: 0.35rem 0;
+}
+
+.postfolio-toc li.postfolio-toc__sub {
+	margin-left: 1rem;
+	font-size: 0.95em;
+}
+
+.postfolio-toc a {
+	text-decoration: none;
+}
+
+.postfolio-toc a:hover,
+.postfolio-toc a[aria-current="true"] {
+	text-decoration: underline;
+}
+
+.postfolio-toc.is-empty {
+	display: none;
+}
+
+.wp-block-post-content :is(h2, h3)[id] {
+	scroll-margin-top: 6rem;
+}
+
+/* ---------- Header options ---------- */
+
+/* Header 06: sticky. */
+.wp-site-blocks > header.wp-block-template-part:has(> .postfolio-is-sticky) {
+	position: sticky;
+	top: var(--wp-admin--admin-bar--height, 0px);
+	z-index: 50;
+}
+
+.postfolio-is-sticky {
+	background-color: color-mix(in srgb, var(--wp--preset--color--base) 92%, transparent);
+	-webkit-backdrop-filter: saturate(180%) blur(12px);
+	backdrop-filter: saturate(180%) blur(12px);
+}
+
+/* Header 07: transparent, overlays the first full-width block of the page. */
+.wp-site-blocks:has(> header.wp-block-template-part > .postfolio-is-transparent) {
+	position: relative;
+}
+
+.wp-site-blocks > header.wp-block-template-part:has(> .postfolio-is-transparent) {
+	position: absolute;
+	left: 0;
+	right: 0;
+	z-index: 50;
+}
+
+.wp-site-blocks > header.wp-block-template-part:has(> .postfolio-is-transparent) + main {
+	margin-top: 0;
+}
+
+/* Keep the transparent header readable when it is edited on its own. */
+.editor-styles-wrapper .postfolio-is-transparent {
+	background-color: var(--wp--preset--color--contrast, #101014);
+}
+
+/* ---------- Sidebar layouts ---------- */
+@media (min-width: 1024px) {
+	.postfolio-sidebar-sticky {
+		position: sticky;
+		top: calc(var(--wp-admin--admin-bar--height, 0px) + 2rem);
+	}
+}
+
+/* ---------- Responsive refinements ---------- */
+
+/* Tablet: rows of four or more columns become a 2 × 2 grid. */
+@media (min-width: 782px) and (max-width: 1024px) {
+	.wp-block-columns:not(.is-not-stacked-on-mobile):has(> .wp-block-column:nth-child(4)) {
+		flex-wrap: wrap !important;
+	}
+
+	.wp-block-columns:not(.is-not-stacked-on-mobile):has(> .wp-block-column:nth-child(4)) > .wp-block-column {
+		flex-basis: calc(50% - var(--wp--style--block-gap, 1.5rem)) !important;
+		flex-grow: 1;
+	}
+
+	/* Sidebar templates: give the content more room on tablets. */
+	.postfolio-sidebar-layout > .wp-block-column:first-child {
+		flex-basis: 64% !important;
+	}
+}
+
+/* Mobile. */
+@media (max-width: 781px) {
+	.is-style-card {
+		padding: 1.25rem;
+	}
+
+	.is-style-card .wp-block-post-featured-image,
+	.is-style-card > .wp-block-post-featured-image {
+		margin-top: -1.25rem;
+		margin-left: -1.25rem;
+		margin-right: -1.25rem;
+	}
+
+	.postfolio-hide-on-mobile {
+		display: none !important;
+	}
+}
+
+@media (min-width: 782px) {
+	.postfolio-show-on-mobile {
+		display: none !important;
+	}
 }
 
 /* ---------- Reduced motion ---------- */
-@media ( prefers-reduced-motion: reduce ) {
+@media (prefers-reduced-motion: reduce) {
 	.is-style-card,
 	.is-style-card .wp-block-post-featured-image img,
 	.postfolio-row-item,
+	.postfolio-logo-cloud img,
 	.skip-link {
 		transition: none !important;
 		transform: none !important;
 	}
 }
 
-/* ---------- Typography Overrides (Poppins for Titles, Montserrat for Body/Buttons) ---------- */
-h1, h2, h3, h4, h5, h6,
-.wp-block-heading,
-.wp-block-site-title,
-.wp-block-post-title,
-.wp-block-post-title a,
-.editor-post-title__input {
-	font-family: 'Poppins', var( --wp--preset--font-family--poppins ), sans-serif;
+/* ---------- Post meta row: dot separators ---------- */
+.postfolio-meta-row > .wp-block-post-date::before,
+.postfolio-meta-row > .wp-block-post-time-to-read::before {
+	content: "\00B7";
+	margin-right: 0.6rem;
+	color: var(--wp--preset--color--contrast-2, #54545e);
 }
 
-body,
-p,
-li,
-a,
-input,
-textarea,
-button,
-.wp-block-button__link,
-.wp-block-navigation,
-.wp-element-button {
-	font-family: 'Montserrat', var( --wp--preset--font-family--montserrat ), sans-serif;
+.postfolio-logo-cloud .wp-block-image img {
+	width: 100%;
+	max-width: 160px;
+	height: auto;
 }
-
-/* Page Title Medium Size Fix */
-.wp-block-post-title,
-.wp-block-post-title a,
-h1.wp-block-post-title,
-.editor-post-title__input {
-	font-size: clamp(1.5rem, 1.3rem + 1vw, 2.15rem) !important;
-	font-weight: 600 !important;
-	line-height: 1.25 !important;
-	letter-spacing: -0.01em !important;
-}
-
-/* ---------- Responsive Layout Adjustments ---------- */
-@media (max-width: 782px) {
-	.wp-block-columns {
-		flex-wrap: wrap !important;
-	}
-	.wp-block-column {
-		flex-basis: 100% !important;
-		margin-left: 0 !important;
-		margin-right: 0 !important;
-	}
-	.is-style-card {
-		padding: 1.25rem !important;
-	}
-}
-

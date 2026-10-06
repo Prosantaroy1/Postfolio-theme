@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"slug": "pill",
+	"title": "Pill",
+	"blockTypes": [
+		"core/post-terms"
+	],
+	"styles": {
+		"typography": {
+			"fontSize": "var(--wp--preset--font-size--small)",
+			"fontWeight": "700",
+			"textTransform": "uppercase",
+			"letterSpacing": "0.04em"
+		},
+		"elements": {
+			"link": {
+				"color": {
+					"text": "var(--wp--preset--color--contrast)"
+				},
+				":hover": {
+					"color": {
+						"text": "var(--wp--preset--color--accent)"
+					}
+				}
+			}
+		},
+		"css": "& a{display:inline-block;padding:0.25em 0.85em;border-radius:999px;background:var(--wp--preset--color--base-2);text-decoration:none;margin:0 0.35em 0.35em 0}& .wp-block-post-terms__separator{display:none}"
+	}
+}

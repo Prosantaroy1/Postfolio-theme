@@ -3,87 +3,102 @@
  * Tab switching & AJAX 1-Click Starter Site Import
  */
 
-(function($) {
+( function ( $ ) {
 	'use strict';
 
-	$(document).ready(function() {
+	$( function () {
+		var vars = window.postfolioDashboardVars || {};
+		var i18n = vars.i18n || {};
 
-		// Tab Switching Logic
-		$('.postfolio-nav-tabs .nav-tab').on('click', function(e) {
-			e.preventDefault();
-			var targetTab = $(this).attr('data-tab');
+		function openTab( targetTab, updateHash ) {
+			var $btn = $( '.postfolio-nav-tabs .nav-tab[data-tab="' + targetTab + '"]' );
 
-			$('.postfolio-nav-tabs .nav-tab').removeClass('nav-tab-active');
-			$(this).addClass('nav-tab-active');
-
-			$('.postfolio-tab-panel').removeClass('active');
-			$('#' + targetTab).addClass('active');
-
-			// Update URL hash without scroll
-			if (history.pushState) {
-				history.pushState(null, null, '#' + targetTab);
-			} else {
-				location.hash = targetTab;
-			}
-		});
-
-		// Check hash in URL on load
-		if (window.location.hash) {
-			var hash = window.location.hash.substring(1);
-			var $targetTabBtn = $('.postfolio-nav-tabs .nav-tab[data-tab="' + hash + '"]');
-			if ($targetTabBtn.length) {
-				$targetTabBtn.trigger('click');
-			}
-		}
-
-		// "Browse Starter Sites" Button Click
-		$(document).on('click', '.postfolio-btn-browse-starters', function(e) {
-			e.preventDefault();
-			$('.postfolio-nav-tabs .nav-tab[data-tab="starter-sites"]').trigger('click');
-		});
-
-		// AJAX Demo Import Handler
-		$(document).on('click', '.postfolio-btn-import', function(e) {
-			e.preventDefault();
-
-			var $btn = $(this);
-			var demoSlug = $btn.data('demo');
-			var demoTitle = $btn.data('title');
-
-			if (!confirm('Are you sure you want to import the "' + demoTitle + '" starter site? This will create a demo homepage and configure your reading settings.')) {
+			if ( ! $btn.length ) {
 				return;
 			}
 
-			var originalText = $btn.html();
-			$btn.prop('disabled', true).html('<span class="dashicons dashicons-update spin" style="margin-right: 5px; animation: spin 1s linear infinite;"></span> Importing...');
+			$( '.postfolio-nav-tabs .nav-tab' ).removeClass( 'nav-tab-active' ).attr( 'aria-selected', 'false' );
+			$btn.addClass( 'nav-tab-active' ).attr( 'aria-selected', 'true' );
 
-			var $notice = $('#postfolio-import-notice');
-			$notice.removeClass('success error').hide();
+			$( '.postfolio-tab-panel' ).removeClass( 'active' );
+			$( '#' + targetTab ).addClass( 'active' );
 
-			$.ajax({
-				url: postfolioDashboardVars.ajaxUrl,
+			if ( updateHash && window.history.replaceState ) {
+				window.history.replaceState( null, '', '#' + targetTab );
+			}
+		}
+
+		// Tab switching.
+		$( '.postfolio-nav-tabs .nav-tab' ).on( 'click', function ( e ) {
+			e.preventDefault();
+			openTab( $( this ).attr( 'data-tab' ), true );
+		} );
+
+		// Restore tab from the URL hash, or return to Modules after saving it.
+		if ( window.location.hash ) {
+			openTab( window.location.hash.substring( 1 ), false );
+		} else if ( /[?&]settings-updated=/.test( window.location.search ) ) {
+			openTab( 'modules', true );
+		}
+
+		// "Browse Starter Sites" button.
+		$( document ).on( 'click', '.postfolio-btn-browse-starters', function ( e ) {
+			e.preventDefault();
+			openTab( 'starter-sites', true );
+		} );
+
+		// AJAX starter site import.
+		$( document ).on( 'click', '.postfolio-btn-import', function ( e ) {
+			e.preventDefault();
+
+			var $btn = $( this );
+			var demoSlug = $btn.data( 'demo' );
+			var demoTitle = String( $btn.data( 'title' ) );
+			var confirmText = ( i18n.confirm || '%s' ).replace( '%s', demoTitle );
+
+			if ( ! window.confirm( confirmText ) ) {
+				return;
+			}
+
+			var originalHtml = $btn.html();
+			var $notice = $( '#postfolio-import-notice' );
+
+			$btn.prop( 'disabled', true ).text( i18n.importing || '…' );
+			$notice.removeClass( 'success error' ).hide();
+
+			$.ajax( {
+				url: vars.ajaxUrl,
 				type: 'POST',
 				data: {
 					action: 'postfolio_blocks_import_demo',
 					demo_slug: demoSlug,
-					security: postfolioDashboardVars.nonce
+					apply_style: $( '#postfolio-apply-style' ).is( ':checked' ) ? 1 : 0,
+					security: vars.nonce,
 				},
-				success: function(response) {
-					if (response.success) {
-						$btn.html('<span class="dashicons dashicons-yes"></span> Imported!');
-						$notice.addClass('success').html(response.data.message).slideDown();
+			} )
+				.done( function ( response ) {
+					if ( response && response.success ) {
+						$btn.prop( 'disabled', false ).text( i18n.imported || '' );
+						$notice
+							.addClass( 'success' )
+							.empty()
+							.append( document.createTextNode( response.data.message + ' ' ) )
+							.append( $( '<a>' ).attr( { href: response.data.url, target: '_blank', rel: 'noopener' } ).text( i18n.visit || '' ) )
+							.slideDown();
 					} else {
-						$btn.prop('disabled', false).html(originalText);
-						$notice.addClass('error').html(response.data.message || 'Import failed. Please try again.').slideDown();
+						$btn.prop( 'disabled', false ).html( originalHtml );
+						$notice
+							.addClass( 'error' )
+							.text( ( response && response.data && response.data.message ) || i18n.failed || '' )
+							.slideDown();
 					}
-				},
-				error: function() {
-					$btn.prop('disabled', false).html(originalText);
-					$notice.addClass('error').html('An unexpected server error occurred during import.').slideDown();
-				}
-			});
-		});
+				} )
+				.fail( function ( xhr ) {
+					var message = xhr && xhr.responseJSON && xhr.responseJSON.data && xhr.responseJSON.data.message;
 
-	});
-
-})(jQuery);
+					$btn.prop( 'disabled', false ).html( originalHtml );
+					$notice.addClass( 'error' ).text( message || i18n.error || '' ).slideDown();
+				} );
+		} );
+	} );
+} )( jQuery );

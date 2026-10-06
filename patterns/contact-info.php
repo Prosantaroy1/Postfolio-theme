@@ -1,8 +1,4 @@
 <?php
-
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
 /**
  * Title: Contact info columns
  * Slug: postfolio-blocks/contact-info
@@ -13,81 +9,66 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @package Postfolio_Blocks
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 ?>
 <!-- wp:group {"align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignwide" style="margin-top:var(--wp--preset--spacing--50);margin-bottom:var(--wp--preset--spacing--50)">
+<div class="wp-block-group alignwide" style="margin-top:var(--wp--preset--spacing--50);margin-bottom:var(--wp--preset--spacing--50)"><!-- wp:group {"style":{"spacing":{"blockGap":"0.75rem","margin":{"bottom":"var:preset|spacing|40"}}},"layout":{"type":"constrained","contentSize":"620px"}} -->
+<div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--40)"><!-- wp:heading {"level":1,"fontSize":"xx-large"} -->
+<h1 class="wp-block-heading has-xx-large-font-size"><?php esc_html_e( 'Let\'s talk.', 'postfolio-blocks' ); ?></h1>
+<!-- /wp:heading -->
 
-	<!-- wp:group {"style":{"spacing":{"blockGap":"0.75rem"},"margin":{"bottom":"var:preset|spacing|40"}},"layout":{"type":"constrained","contentSize":"620px"}} -->
-	<div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--40)">
-		<!-- wp:heading {"level":1,"fontSize":"xx-large"} -->
-		<h1 class="wp-block-heading has-xx-large-font-size"><?php esc_html_e( 'Let\'s talk.', 'postfolio-blocks' ); ?></h1>
-		<!-- /wp:heading -->
+<!-- wp:paragraph {"textColor":"contrast-2","fontSize":"large"} -->
+<p class="has-contrast-2-color has-text-color has-large-font-size"><?php esc_html_e( 'Questions, pitches, or just want to say hello? Pick whichever channel suits you best.', 'postfolio-blocks' ); ?></p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
 
-		<!-- wp:paragraph {"textColor":"contrast-2","fontSize":"large"} -->
-		<p class="has-contrast-2-color has-text-color has-large-font-size"><?php esc_html_e( 'Questions, pitches, or just want to say hello? Pick whichever channel suits you best.', 'postfolio-blocks' ); ?></p>
-		<!-- /wp:paragraph -->
-	</div>
-	<!-- /wp:group -->
+<!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|30"}}}} -->
+<div class="wp-block-columns"><!-- wp:column {"className":"is-style-card"} -->
+<div class="wp-block-column is-style-card"><!-- wp:paragraph {"className":"postfolio-badge","fontSize":"small"} -->
+<p class="postfolio-badge has-small-font-size"><?php esc_html_e( 'Email', 'postfolio-blocks' ); ?></p>
+<!-- /wp:paragraph -->
 
-	<!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|30"}}}} -->
-	<div class="wp-block-columns">
+<!-- wp:heading {"level":3,"fontSize":"large"} -->
+<h3 class="wp-block-heading has-large-font-size"><?php esc_html_e( 'General & editorial', 'postfolio-blocks' ); ?></h3>
+<!-- /wp:heading -->
 
-		<!-- wp:column {"className":"is-style-card"} -->
-		<div class="wp-block-column is-style-card">
-			<!-- wp:paragraph {"fontSize":"small","className":"postfolio-badge"} -->
-			<p class="postfolio-badge has-small-font-size"><?php esc_html_e( 'Email', 'postfolio-blocks' ); ?></p>
-			<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p><a href="mailto:hello@example.com">hello@example.com</a></p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column -->
 
-			<!-- wp:heading {"level":3,"fontSize":"large"} -->
-			<h3 class="wp-block-heading has-large-font-size"><?php esc_html_e( 'General & editorial', 'postfolio-blocks' ); ?></h3>
-			<!-- /wp:heading -->
+<!-- wp:column {"className":"is-style-card"} -->
+<div class="wp-block-column is-style-card"><!-- wp:paragraph {"className":"postfolio-badge","fontSize":"small"} -->
+<p class="postfolio-badge has-small-font-size"><?php esc_html_e( 'Studio', 'postfolio-blocks' ); ?></p>
+<!-- /wp:paragraph -->
 
-			<!-- wp:paragraph -->
-			<p><a href="mailto:hello@example.com">hello@example.com</a></p>
-			<!-- /wp:paragraph -->
-		</div>
-		<!-- /wp:column -->
+<!-- wp:heading {"level":3,"fontSize":"large"} -->
+<h3 class="wp-block-heading has-large-font-size"><?php esc_html_e( 'Where we work from', 'postfolio-blocks' ); ?></h3>
+<!-- /wp:heading -->
 
-		<!-- wp:column {"className":"is-style-card"} -->
-		<div class="wp-block-column is-style-card">
-			<!-- wp:paragraph {"fontSize":"small","className":"postfolio-badge"} -->
-			<p class="postfolio-badge has-small-font-size"><?php esc_html_e( 'Studio', 'postfolio-blocks' ); ?></p>
-			<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p><?php esc_html_e( 'Remote-first — writers and editors contribute from a dozen cities worldwide.', 'postfolio-blocks' ); ?></p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column -->
 
-			<!-- wp:heading {"level":3,"fontSize":"large"} -->
-			<h3 class="wp-block-heading has-large-font-size"><?php esc_html_e( 'Where we work from', 'postfolio-blocks' ); ?></h3>
-			<!-- /wp:heading -->
+<!-- wp:column {"className":"is-style-card"} -->
+<div class="wp-block-column is-style-card"><!-- wp:paragraph {"className":"postfolio-badge","fontSize":"small"} -->
+<p class="postfolio-badge has-small-font-size"><?php esc_html_e( 'Follow', 'postfolio-blocks' ); ?></p>
+<!-- /wp:paragraph -->
 
-			<!-- wp:paragraph -->
-			<p><?php esc_html_e( 'Remote-first — writers and editors contribute from a dozen cities worldwide.', 'postfolio-blocks' ); ?></p>
-			<!-- /wp:paragraph -->
-		</div>
-		<!-- /wp:column -->
+<!-- wp:heading {"level":3,"fontSize":"large"} -->
+<h3 class="wp-block-heading has-large-font-size"><?php esc_html_e( 'On social', 'postfolio-blocks' ); ?></h3>
+<!-- /wp:heading -->
 
-		<!-- wp:column {"className":"is-style-card"} -->
-		<div class="wp-block-column is-style-card">
-			<!-- wp:paragraph {"fontSize":"small","className":"postfolio-badge"} -->
-			<p class="postfolio-badge has-small-font-size"><?php esc_html_e( 'Follow', 'postfolio-blocks' ); ?></p>
-			<!-- /wp:paragraph -->
+<!-- wp:social-links {"size":"has-normal-icon-size","className":"is-style-logos-only"} -->
+<ul class="wp-block-social-links has-normal-icon-size is-style-logos-only"><!-- wp:social-link {"url":"https://x.com/","service":"x"} /-->
 
-			<!-- wp:heading {"level":3,"fontSize":"large"} -->
-			<h3 class="wp-block-heading has-large-font-size"><?php esc_html_e( 'On social', 'postfolio-blocks' ); ?></h3>
-			<!-- /wp:heading -->
+<!-- wp:social-link {"url":"https://www.instagram.com/","service":"instagram"} /-->
 
-			<!-- wp:social-links {"size":"has-normal-icon-size","className":"is-style-logos-only"} -->
-			<ul class="wp-block-social-links has-normal-icon-size is-style-logos-only">
-				<!-- wp:social-link {"url":"#","service":"x"} /-->
-
-				<!-- wp:social-link {"url":"#","service":"instagram"} /-->
-
-				<!-- wp:social-link {"url":"#","service":"linkedin"} /-->
-			</ul>
-			<!-- /wp:social-links -->
-		</div>
-		<!-- /wp:column -->
-
-	</div>
-	<!-- /wp:columns -->
-
-</div>
+<!-- wp:social-link {"url":"https://www.linkedin.com/","service":"linkedin"} /--></ul>
+<!-- /wp:social-links --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns --></div>
 <!-- /wp:group -->

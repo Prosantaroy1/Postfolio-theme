@@ -1,26 +1,14 @@
 /*
- * Editor-only styles so the block editor canvas matches the front end.
+ * Editor-only styles. The front-end stylesheet (custom.css) is loaded into
+ * the editor as well, so this file only holds editor-specific tweaks.
  */
-@import url( 'custom.css' );
 
-.editor-styles-wrapper {
-	font-family: 'Montserrat', var( --wp--preset--font-family--montserrat ), sans-serif;
+/* Empty TOC placeholders stay visible while editing. */
+.editor-styles-wrapper .postfolio-toc.is-empty {
+	display: block;
 }
 
-/* Page/Post Title in Editor - Medium Size & Weight */
-.editor-post-title__input,
-.wp-block-post-title,
-.wp-block-post-title a,
-h1.editor-post-title__input {
-	font-family: 'Poppins', var( --wp--preset--font-family--poppins ), sans-serif !important;
-	font-size: clamp(1.5rem, 1.3rem + 1vw, 2.15rem) !important;
-	font-weight: 600 !important;
-	line-height: 1.25 !important;
-	letter-spacing: -0.01em !important;
-}
-
-h1, h2, h3, h4, h5, h6,
-.wp-block-heading {
-	font-family: 'Poppins', var( --wp--preset--font-family--poppins ), sans-serif;
-	font-weight: 600;
+/* Floating module buttons never show inside the editor canvas. */
+.editor-styles-wrapper .postfolio-floating {
+	display: none;
 }

@@ -5,18 +5,35 @@
 	"settings": {
 		"color": {
 			"palette": [
-				{ "slug": "base", "color": "#f8fafc", "name": "Base" },
-				{ "slug": "base-2", "color": "#edf2f7", "name": "Base Muted" },
-				{ "slug": "contrast", "color": "#0f172a", "name": "Contrast" },
-				{ "slug": "contrast-2", "color": "#64748b", "name": "Contrast Muted" },
-				{ "slug": "accent", "color": "#0d9488", "name": "Accent Teal" },
-				{ "slug": "accent-2", "color": "#3b82f6", "name": "Accent Sky Blue" }
-			],
-			"gradients": [
 				{
-					"slug": "indigo-to-coral",
-					"gradient": "linear-gradient(135deg, #0d9488 0%, #3b82f6 100%)",
-					"name": "Teal to Sky Blue"
+					"slug": "base",
+					"color": "#f8fafc",
+					"name": "Base"
+				},
+				{
+					"slug": "base-2",
+					"color": "#edf2f7",
+					"name": "Base Muted"
+				},
+				{
+					"slug": "contrast",
+					"color": "#0f172a",
+					"name": "Contrast"
+				},
+				{
+					"slug": "contrast-2",
+					"color": "#56657a",
+					"name": "Contrast Muted"
+				},
+				{
+					"slug": "accent",
+					"color": "#0f766e",
+					"name": "Accent"
+				},
+				{
+					"slug": "accent-2",
+					"color": "#3b82f6",
+					"name": "Accent 2"
 				}
 			]
 		}
@@ -26,17 +43,60 @@
 			"background": "var(--wp--preset--color--base)",
 			"text": "var(--wp--preset--color--contrast)"
 		},
+		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--manrope)"
+		},
 		"elements": {
+			"heading": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--manrope)",
+					"fontWeight": "700"
+				}
+			},
 			"button": {
+				"border": {
+					"radius": "4px"
+				},
 				"color": {
 					"background": "var(--wp--preset--color--contrast)",
 					"text": "var(--wp--preset--color--base)"
+				},
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--manrope)"
 				},
 				":hover": {
 					"color": {
 						"background": "var(--wp--preset--color--accent)",
 						"text": "var(--wp--preset--color--base)"
 					}
+				}
+			},
+			"link": {
+				"color": {
+					"text": "var(--wp--preset--color--accent)"
+				},
+				":hover": {
+					"color": {
+						"text": "var(--wp--preset--color--contrast)"
+					}
+				}
+			}
+		},
+		"blocks": {
+			"core/site-title": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--manrope)"
+				}
+			},
+			"core/post-title": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--manrope)",
+					"fontWeight": "700"
+				}
+			},
+			"core/navigation": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--manrope)"
 				}
 			}
 		}
