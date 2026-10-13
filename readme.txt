@@ -3,67 +3,91 @@ Contributors: bplugins, prosanta10
 Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 7.4
-Version: 1.1.0
+Version: 1.2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
-Tags: blog, news, portfolio, one-column, two-columns, three-columns, four-columns, right-sidebar, grid-layout, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, full-width-template, block-patterns, block-styles, style-variations, template-editing, theme-options, threaded-comments, rtl-language-support, translation-ready, wide-blocks
+Tags: blog, news, portfolio, one-column, two-columns, three-columns, four-columns, right-sidebar, grid-layout, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, post-formats, full-width-template, block-patterns, block-styles, style-variations, template-editing, theme-options, threaded-comments, rtl-language-support, translation-ready, wide-blocks
 
-A bold, contemporary block theme for blogs, online magazines and portfolios — with 57 patterns, 22 templates, one-click starter sites, dark mode and a full set of blog tools built from core blocks.
+Free FSE block theme for blogs, news magazines, portfolios and agencies — 5 starter sites with demo content, 68 patterns and dark mode.
 
 == Description ==
 
-Postfolio Blocks is a full-site-editing (FSE) block theme for independent blogs, online magazines, news sites and creative portfolios that want a modern, editorial look without installing a page builder. Everything is built from core WordPress blocks, so your content keeps working with any block theme.
+**Postfolio Blocks is a free WordPress block theme (full site editing) for blogs, news and magazine websites, creative portfolios and small agencies.** It is built only from core WordPress blocks, so it needs no page builder, and your content keeps working if you ever change themes.
 
-= Layouts =
+Import one of five starter sites, replace the demo content with your own, and publish. Everything — templates, headers, footers, colors and fonts — can be edited visually in the Site Editor.
 
-* **Three homepage layouts**: Home 1 (Statement), Home 2 (Spotlight) and Home 3 (Editorial List).
-* **22 templates**: blog index, front page, three homepages, four single-post layouts (default, with sidebar, cover hero, wide), five page layouts (default, no title, full width, with sidebar, landing page with transparent header), blank canvas, category, tag, date, author, archive, search and 404.
-* **15 template parts**: 7 headers (including sticky and transparent), 5 footers, sidebar, post meta and comments — swap them in the Site Editor.
-* **57 block patterns**: post grids and lists, heroes, calls to action, services, pricing, team, testimonials, FAQ, portfolio grid, case study, logo cloud, stats, timeline, gallery, events, careers, process steps and features.
-* **Page starters**: when you create a new page, pick a ready-made Landing, Services, Portfolio, About, Contact, Blog or Portfolio landing layout.
+= Who is Postfolio Blocks for? =
 
-= Styles =
+* **Bloggers and writers** who want a clean, fast personal blog with reading time, an author box and a table of contents.
+* **News sites and online magazines** that need a breaking news ticker, live blog coverage, category pages, ad slots and magazine-style homepages.
+* **Designers and freelancers** who want a portfolio with real case study pages.
+* **Agencies and small businesses** that need a landing page with services, selected work, team, pricing and FAQ.
 
-* 7 complete style variations (Midnight, Cyberpunk, Forest, Lavender, Nordic, Retro, Sunset) that change colors, fonts and button shapes.
-* 8 extra color palettes and 6 font pairings that can be mixed with any style.
-* 5 section styles (Dark, Accent, Muted, Gradient, Bordered) for Group, Columns and Column blocks, plus Card, Rounded, Dot and Pill block styles.
-* Shadow presets, custom aspect ratios and a fluid type scale.
-* Six self-hosted fonts (Poppins, Montserrat, Manrope, Lora, Playfair Display) — no requests to third-party font services.
-* Every palette meets WCAG AA contrast for text, muted text and links.
+= What is included? =
+
+* **5 one-click starter sites with demo content:** Personal Blog, Online Magazine, Editorial News, Creative Portfolio and Business & Agency. Each import adds the pages, demo posts with featured images, categories, tags, reader comments and a menu, and sets your homepage. Importing again updates the same content instead of duplicating it.
+* **68 block patterns:** magazine and editorial homepages, post grids and lists, spotlight and bento layouts, heroes, calls to action, services, pricing, team, testimonials, FAQ, portfolio grids, case studies, logo cloud, stats, timeline, gallery, events and careers.
+* **News and magazine tools:** a breaking news ticker (pausable, and static for visitors who prefer reduced motion), a top bar with today's date and trending tags, a live blog timeline, and leaderboard (728×90), sidebar (300×250) and in-article ad slots that reserve their space so the page does not jump.
+* **27 templates:** blog index, front page, three homepage layouts, single posts (default, sidebar, cover hero, wide), dedicated layouts for video, gallery, quote and audio post formats, a case study template for portfolio work, page layouts (no title, full width, sidebar, landing page, blank canvas), category pages with a lead story and sub-categories, author pages with bio and stats, tag, date, archive, search and 404.
+* **15 template parts:** 7 headers (including sticky and transparent), 5 footers, sidebar, post meta and comments.
+* **Portfolio case studies:** posts in the "Work" category open in the case study template — project facts, challenge, process, result and impact in numbers.
+
+= Design and styles =
+
+* 7 style variations (Midnight, Cyberpunk, Forest, Lavender, Nordic, Retro, Sunset), 8 color palettes, 6 font pairings and 5 section styles.
+* Optional dark mode with a visitor switch; the dark palette is generated from your colors, and footers stay readable in every palette.
+* Self-hosted fonts (Poppins, Montserrat, Manrope, Lora, Playfair Display) — no requests to Google Fonts.
+* Fluid type scale, shadow presets and custom aspect ratios.
+
+= Speed, SEO and accessibility =
+
+* **Lightweight:** no page builder and no jQuery on the front end. Scripts such as the ticker and the table of contents load only on pages that use them.
+* **SEO-friendly structure:** semantic HTML landmarks, one H1 per page and a logical heading order, descriptive link text, image alt text in patterns, and internal linking through related posts, popular posts and category pages.
+* **Accessible:** keyboard-friendly navigation, visible focus styles, readable color contrast and reduced-motion support.
 
 = Blog tools =
 
-* Reading time, author box, category pills and previous/next links on every post.
-* Related posts (same categories), popular posts (most commented), share buttons for the current post and an automatic table of contents.
-* A sidebar with search, about card, popular posts, categories, tags and a newsletter box.
+Reading time, author box, related posts (same category), most discussed posts, share buttons, previous/next links and an automatic table of contents.
 
 = Modules (Appearance → Postfolio Blocks → Modules) =
 
-All modules are off by default. Turn on only what you need — each module loads its small script and stylesheet only when enabled:
+All modules are off by default and load nothing until you turn them on: dark mode, back to top, reading progress bar, smart sticky header, scroll animations, footer reveal and floating call / email / WhatsApp buttons.
 
-* Dark mode toggle (the dark palette is generated from your current colors)
-* Back to top button
-* Reading progress bar
-* Smart sticky header
-* Scroll animations (respects reduced-motion settings)
-* Footer reveal effect
-* Floating call / email / WhatsApp buttons
+= Works great with =
 
-= One-click starter sites =
-
-Personal Blog, Online Magazine, Editorial News, Creative Portfolio and Business & Agency. Each creates its pages from the theme patterns, sets the homepage and can optionally apply a matching style. Importing again updates the same pages instead of duplicating them.
+Postfolio Blocks works fully on its own. For extra layouts you can optionally install two free plugins from WordPress.org: **Advanced Post Block** (post grids, sliders, masonry and news tickers) and **bBlocks** (80+ blocks such as pricing tables, countdowns and sliders). See Appearance → Postfolio Blocks → Recommended Plugins.
 
 == Installation ==
 
 1. Go to Appearance → Themes → Add New.
 2. Search for "Postfolio Blocks", click Install, then Activate.
-3. Open Appearance → Postfolio Blocks to import a starter site or turn on modules.
+3. Open Appearance → Postfolio Blocks to import a starter site, turn on modules or see the recommended plugins.
 
 == Frequently Asked Questions ==
 
+= What is Postfolio Blocks? =
+
+Postfolio Blocks is a free full-site-editing WordPress theme for blogs, news magazines, portfolios and agencies. It includes five starter sites with demo content, 68 block patterns and 27 templates, all built from core blocks.
+
+= Is Postfolio Blocks free? =
+
+Yes. Every feature, starter site and pattern is free. There is nothing to unlock.
+
 = Does this theme require any plugin? =
 
-No. Every template and pattern is built from WordPress core blocks only.
+No. Every template and pattern uses WordPress core blocks only. Advanced Post Block and bBlocks are optional extras.
+
+= Is Postfolio Blocks good for a news or magazine website? =
+
+Yes. The Online Magazine and Editorial News starter sites include a spotlight homepage, category sections, editor's picks and a most discussed list. You also get a breaking news ticker, a top bar with today's date, a live blog pattern and ad slots.
+
+= How do I make a portfolio with case studies? =
+
+Import the Creative Portfolio starter site, or add posts to a category with the slug "work". Those posts open in the Case Study template automatically, and you can insert the "Case study" pattern to add the challenge, process, result and metrics sections.
+
+= How do I use the video, gallery, quote and audio layouts? =
+
+Set the post format in the post editor (Post → Format). The matching layout is used automatically. You can also choose it in the Template setting of any post.
 
 = How do I switch between Home 1, Home 2 and Home 3? =
 
@@ -75,7 +99,7 @@ They are already part of the single post templates. To add them anywhere else, i
 
 = How do I put a dark mode switch in my header? =
 
-Turn on the Dark mode module, then add a Button block to your header and choose the "Dark mode toggle" style for it. A floating switch is also shown by default.
+Turn on the Dark mode module, then add the "News top bar" pattern, or add a Button block and choose its "Dark mode toggle" style. A floating switch is also shown by default.
 
 = Can I change the colors and fonts? =
 
@@ -86,6 +110,29 @@ Yes. Open Appearance → Editor → Styles to pick a style variation, a color pa
 No. All fonts are bundled with the theme and served from your own site.
 
 == Changelog ==
+
+= 1.2.0 =
+* Feature: Starter sites now import demo content — 12 posts with original illustrations, categories, tags, reader comments and a menu — so every site looks complete right away. Importing again updates the same content.
+* Feature: New homepages for Online Magazine, Editorial News, Personal Blog, Business & Agency and Creative Portfolio, with every section aligned to the same width.
+* Feature: Creative Portfolio imports four case study projects in a new "Work" category, plus a Work page that lists them.
+* Feature: New patterns — breaking news ticker, news top bar (today's date, trending tags, dark mode switch), live blog timeline, leaderboard, sidebar and in-article ad slots, case study, and a portfolio call to action.
+* Feature: New templates — video, gallery, quote and audio post formats (with post format support) and a case study template used automatically for posts in "Work".
+* Feature: Category pages show a lead story, a grid of the latest posts in that category and sub-category links. Author pages show a large avatar, bio, post count and social links.
+* Feature: "Recommended Plugins" tab in the dashboard for Advanced Post Block and bBlocks — optional, installed only when you click, with one dismissible notice.
+* Enhancement: Starter site cards preview each site with its own colors, fonts and layout, list the pages they create and show what is already imported.
+* Enhancement: Single posts have a centered header, a redesigned author box (with a fallback bio) and a share card.
+* Enhancement: The Business & Agency homepage is redesigned with a split hero, services, selected work, process, team and three-plan pricing.
+* Fix: Footer text no longer disappears when dark mode is switched on, with any style variation (including Midnight).
+* Fix: The floating dark mode and back-to-top buttons stay visible on top of the footer.
+* Fix: The comment form no longer touches the footer when the footer reveal module is on.
+* Fix: Related posts and "most discussed" lists now work when they are placed inside groups or columns.
+* Fix: The header search field no longer overflows on phones.
+* Fix: Spotlight and "Latest stories" headings line up with their grids; category badges on cover images are readable.
+* Fix: Removed internal labels ("Home 2 · Spotlight", "Home 3 · Editorial") from the homepage layouts.
+* Fix: Hard-coded white text replaced with palette colors, so dark sections stay readable in dark mode.
+* Fix: A translation function had an incorrect argument, which also made a second text domain appear.
+* Performance: The ticker script loads only on pages with a ticker; dashboard preview fonts load only on the theme dashboard.
+* Tweak: Removed a leftover zip file from the theme folder.
 
 = 1.1.0 =
 * Accessibility: Every button and link has a real destination (no "#" placeholders), so all of them can be reached and used with the keyboard.

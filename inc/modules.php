@@ -245,6 +245,49 @@ function postfolio_blocks_color_scheme_css() {
 }
 
 /**
+ * CSS that keeps the footers readable with any palette.
+ *
+ * The footers have a fixed dark background, so inside them "base" must
+ * always be the light color and "contrast" the dark one — whether the
+ * active palette is light, dark (e.g. Midnight) or switched by dark mode.
+ *
+ * @return string
+ */
+function postfolio_blocks_footer_palette_css() {
+	$palette = wp_get_global_settings( array( 'color', 'palette' ) );
+	$colors  = array();
+
+	foreach ( array( 'default', 'theme', 'custom' ) as $origin ) {
+		if ( ! empty( $palette[ $origin ] ) ) {
+			foreach ( $palette[ $origin ] as $entry ) {
+				$colors[ $entry['slug'] ] = $entry['color'];
+			}
+		}
+	}
+
+	foreach ( array( 'base', 'contrast' ) as $slug ) {
+		if ( empty( $colors[ $slug ] ) || '#' !== substr( $colors[ $slug ], 0, 1 ) ) {
+			return '';
+		}
+	}
+
+	$light = $colors['base'];
+	$dark  = $colors['contrast'];
+
+	if ( postfolio_blocks_luminance( $light ) < postfolio_blocks_luminance( $dark ) ) {
+		list( $light, $dark ) = array( $dark, $light );
+	}
+
+	return sprintf(
+		'.postfolio-footer{--wp--preset--color--base:%1$s;--wp--preset--color--base-2:%2$s;--wp--preset--color--contrast:%3$s;--wp--preset--color--contrast-2:%4$s;color-scheme:dark;}',
+		$light,
+		postfolio_blocks_mix_hex( $dark, $light, 0.12 ),
+		$dark,
+		postfolio_blocks_mix_hex( $light, $dark, 0.35 )
+	);
+}
+
+/**
  * Print the color-scheme bootstrap as early as possible to avoid a flash of
  * the wrong colors.
  */
@@ -338,7 +381,7 @@ add_action( 'wp_enqueue_scripts', 'postfolio_blocks_module_assets' );
  * @return string[]
  */
 function postfolio_blocks_module_body_class( $classes ) {
-	foreach ( array( 'smart_header', 'footer_reveal', 'animations' ) as $key ) {
+	foreach ( array( 'smart_header', 'footer_reveal', 'animations', 'dark_mode' ) as $key ) {
 		if ( postfolio_blocks_module_enabled( $key ) ) {
 			$classes[] = 'postfolio-has-' . str_replace( '_', '-', $key );
 		}

@@ -32,7 +32,8 @@
 	border-radius: 999px;
 	background: var(--wp--preset--color--contrast, #101014);
 	color: var(--wp--preset--color--base, #fff);
-	box-shadow: var(--wp--preset--shadow--elevated, 0 12px 24px rgba(0, 0, 0, 0.2));
+	/* The thin ring keeps the button visible over a footer of the same color. */
+	box-shadow: 0 0 0 1px color-mix(in srgb, var(--wp--preset--color--base, #fff) 22%, transparent), var(--wp--preset--shadow--elevated, 0 12px 24px rgba(0, 0, 0, 0.2));
 	cursor: pointer;
 	text-decoration: none;
 	transition: transform 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
@@ -145,6 +146,9 @@ html.postfolio-scheme-transition * {
 
 /* ---------- Footer reveal ---------- */
 .postfolio-footer-reveal-ready .wp-site-blocks > :not(footer) {
+	/* flow-root keeps the last section's bottom margin inside this painted
+	   area, so content never sits flush against the revealed footer. */
+	display: flow-root;
 	position: relative;
 	z-index: 1;
 	background-color: var(--wp--preset--color--base, #fff);

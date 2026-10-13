@@ -47,6 +47,59 @@
 			openTab( 'starter-sites', true );
 		} );
 
+		// Recommended plugins: install with core's wp.updates, then activate,
+		// all without leaving the page. Without JS the link opens core's installer.
+		function markActive( $btn ) {
+			$btn.closest( '.postfolio-plugin-card' ).removeClass( 'is-install is-activate' ).addClass( 'is-active' );
+			$btn.replaceWith(
+				$( '<span class="postfolio-plugin-active">' )
+					.append( '<span class="dashicons dashicons-yes-alt" aria-hidden="true"></span>' )
+					.append( document.createTextNode( i18n.active || '' ) )
+			);
+		}
+
+		function activate( $btn, url ) {
+			$btn.addClass( 'updating-message' ).text( i18n.activating || '…' );
+			$.get( url )
+				.done( function () {
+					markActive( $btn );
+				} )
+				.fail( function () {
+					window.location.href = url;
+				} );
+		}
+
+		$( document ).on( 'click', '.postfolio-plugin-install', function ( e ) {
+			var $btn = $( this );
+
+			if ( ! window.wp || ! window.wp.updates ) {
+				return; // Follow the link to core's install screen.
+			}
+
+			e.preventDefault();
+			$btn.addClass( 'updating-message disabled' ).attr( 'aria-disabled', 'true' ).text( i18n.installing || '…' );
+
+			window.wp.updates
+				.installPlugin( { slug: $btn.data( 'slug' ) } )
+				.done( function ( response ) {
+					if ( response && response.activateUrl ) {
+						activate( $btn, response.activateUrl );
+					} else {
+						markActive( $btn );
+					}
+				} )
+				.fail( function () {
+					$btn.removeClass( 'updating-message disabled' ).text( i18n.installFail || '' );
+					window.location.href = $btn.attr( 'href' );
+				} );
+		} );
+
+		// Activate links stay on this page too.
+		$( document ).on( 'click', '.postfolio-plugin-card.is-activate .postfolio-plugin-btn', function ( e ) {
+			e.preventDefault();
+			activate( $( this ), $( this ).attr( 'href' ) );
+		} );
+
 		// AJAX starter site import.
 		$( document ).on( 'click', '.postfolio-btn-import', function ( e ) {
 			e.preventDefault();
@@ -73,12 +126,14 @@
 					action: 'postfolio_blocks_import_demo',
 					demo_slug: demoSlug,
 					apply_style: $( '#postfolio-apply-style' ).is( ':checked' ) ? 1 : 0,
+					demo_content: $( '#postfolio-demo-content' ).is( ':checked' ) ? 1 : 0,
 					security: vars.nonce,
 				},
 			} )
 				.done( function ( response ) {
 					if ( response && response.success ) {
 						$btn.prop( 'disabled', false ).text( i18n.imported || '' );
+						$btn.closest( '.postfolio-starter-card' ).addClass( 'is-imported' );
 						$notice
 							.addClass( 'success' )
 							.empty()

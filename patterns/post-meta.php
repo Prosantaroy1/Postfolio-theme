@@ -13,12 +13,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 ?>
-<!-- wp:group {"style":{"spacing":{"blockGap":"0.85rem"}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group"><!-- wp:post-terms {"term":"category","className":"is-style-pill"} /-->
+<!-- wp:group {"className":"postfolio-post-header","style":{"spacing":{"blockGap":"1rem"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
+<div class="wp-block-group postfolio-post-header"><!-- wp:post-terms {"term":"category","textAlign":"center","className":"is-style-pill"} /-->
 
-<!-- wp:post-title {"level":1,"fontSize":"huge"} /-->
+<!-- wp:post-title {"textAlign":"center","level":1,"fontSize":"huge"} /-->
 
-<!-- wp:group {"className":"postfolio-meta-row","style":{"spacing":{"blockGap":"0.6rem"}},"layout":{"type":"flex","flexWrap":"wrap","verticalAlignment":"center"}} -->
+<!-- wp:group {"className":"postfolio-meta-row","style":{"spacing":{"blockGap":"0.6rem"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"center","verticalAlignment":"center"}} -->
 <div class="wp-block-group postfolio-meta-row"><!-- wp:avatar {"size":32,"style":{"border":{"radius":"999px"}}} /-->
 
 <!-- wp:post-author-name {"isLink":true,"fontSize":"small"} /-->

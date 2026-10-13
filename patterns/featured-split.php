@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 ?>
-<!-- wp:group {"align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"layout":{"type":"constrained"}} -->
+<!-- wp:group {"align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"layout":{"type":"default"}} -->
 <div class="wp-block-group alignwide" style="margin-top:var(--wp--preset--spacing--50);margin-bottom:var(--wp--preset--spacing--50)"><!-- wp:heading {"fontSize":"xx-large","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}}} -->
 <h2 class="wp-block-heading has-xx-large-font-size" style="margin-bottom:var(--wp--preset--spacing--30)"><?php esc_html_e( 'Spotlight', 'postfolio-blocks' ); ?></h2>
 <!-- /wp:heading -->
@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="wp-block-column" style="flex-basis:60%"><!-- wp:query {"queryId":2,"query":{"perPage":1,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","sticky":"","inherit":false},"layout":{"type":"default"}} -->
 <div class="wp-block-query"><!-- wp:post-template -->
 <!-- wp:cover {"useFeaturedImage":true,"dimRatio":40,"minHeight":460,"minHeightUnit":"px","className":"postfolio-spotlight-primary","style":{"border":{"radius":"1.25rem"}}} -->
-<div class="wp-block-cover postfolio-spotlight-primary" style="border-radius:1.25rem;min-height:460px"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-40 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:post-terms {"term":"category","className":"postfolio-badge","textColor":"base"} /-->
+<div class="wp-block-cover postfolio-spotlight-primary" style="border-radius:1.25rem;min-height:460px"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-40 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:post-terms {"term":"category","className":"postfolio-badge-accent"} /-->
 
 <!-- wp:post-title {"isLink":true,"fontSize":"xx-large"} /-->
 

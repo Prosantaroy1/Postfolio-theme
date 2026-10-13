@@ -65,6 +65,10 @@ function postfolio_blocks_admin_assets( $hook_suffix ) {
 				'failed'    => __( 'Import failed. Please try again.', 'postfolio-blocks' ),
 				'error'     => __( 'An unexpected server error occurred during import.', 'postfolio-blocks' ),
 				'visit'     => __( 'View site', 'postfolio-blocks' ),
+				'installing'  => __( 'Installing…', 'postfolio-blocks' ),
+				'activating'  => __( 'Activating…', 'postfolio-blocks' ),
+				'active'      => __( 'Active', 'postfolio-blocks' ),
+				'installFail' => __( 'Could not install. Opening the WordPress installer…', 'postfolio-blocks' ),
 			),
 		)
 	);
@@ -133,6 +137,117 @@ function postfolio_blocks_admin_card( $icon, $title, $text, $url ) {
 }
 
 /**
+ * Render a decorative mini mockup of a starter site's homepage.
+ *
+ * The markup is plain divs painted with the site's own design tokens
+ * (see postfolio_blocks_starter_site_tokens()), so no preview images ship
+ * with the theme and the cards follow any palette or font change.
+ *
+ * @param string $layout Starter site layout key.
+ * @param string $logo   Short brand name shown in the mock header.
+ */
+function postfolio_blocks_starter_mockup( $layout, $logo ) {
+	$lines = function ( $widths, $class = '' ) {
+		foreach ( $widths as $width ) {
+			printf( '<span class="pfm-line %1$s" style="width:%2$d%%"></span>', esc_attr( $class ), (int) $width );
+		}
+	};
+	$card  = function ( $img = 'pfm-img' ) use ( $lines ) {
+		echo '<div class="pfm-card"><span class="' . esc_attr( $img ) . '"></span><span class="pfm-tag"></span>';
+		$lines( array( 92, 70 ), 'is-strong' );
+		$lines( array( 55 ) );
+		echo '</div>';
+	};
+	$header = function ( $class = '' ) use ( $logo ) {
+		echo '<div class="pfm-header ' . esc_attr( $class ) . '"><b class="pfm-logo">' . esc_html( $logo ) . '</b><span class="pfm-nav"><i></i><i></i><i></i><i></i></span><span class="pfm-btn is-small"></span></div>';
+	};
+	?>
+	<div class="pfm-chrome"><i></i><i></i><i></i><span class="pfm-url"></span></div>
+	<div class="pfm-screen">
+		<div class="pfm-page pfm-<?php echo esc_attr( $layout ); ?>">
+			<?php if ( 'blog' === $layout ) : ?>
+				<?php $header(); ?>
+				<div class="pfm-hero">
+					<span class="pfm-kicker"></span>
+					<b class="pfm-title"><?php esc_html_e( 'Notes on design, code & life', 'postfolio-blocks' ); ?></b>
+					<?php $lines( array( 74, 52 ) ); ?>
+					<span class="pfm-btn"></span>
+				</div>
+				<div class="pfm-grid is-3"><?php $card(); $card(); $card(); ?></div>
+				<div class="pfm-grid is-3"><?php $card(); $card(); $card(); ?></div>
+				<div class="pfm-band"><b class="pfm-title is-sm"><?php esc_html_e( 'Join the newsletter', 'postfolio-blocks' ); ?></b><span class="pfm-input"></span></div>
+
+			<?php elseif ( 'magazine' === $layout ) : ?>
+				<?php $header( 'is-ruled' ); ?>
+				<div class="pfm-feature">
+					<div class="pfm-lead">
+						<span class="pfm-img is-tall"></span>
+						<span class="pfm-tag"></span>
+						<b class="pfm-title is-md"><?php esc_html_e( 'The stories shaping this week', 'postfolio-blocks' ); ?></b>
+						<?php $lines( array( 86, 60 ) ); ?>
+					</div>
+					<div class="pfm-side">
+						<?php for ( $i = 0; $i < 3; $i++ ) : ?>
+							<div class="pfm-row"><span class="pfm-img is-thumb"></span><div><span class="pfm-tag"></span><?php $lines( array( 95, 70 ), 'is-strong' ); ?></div></div>
+						<?php endfor; ?>
+					</div>
+				</div>
+				<div class="pfm-label"></div>
+				<div class="pfm-grid is-4"><?php $card(); $card(); $card(); $card(); ?></div>
+				<div class="pfm-grid is-4"><?php $card(); $card(); $card(); $card(); ?></div>
+
+			<?php elseif ( 'editorial' === $layout ) : ?>
+				<?php $header(); ?>
+				<div class="pfm-hero is-center">
+					<span class="pfm-kicker"></span>
+					<b class="pfm-title"><?php esc_html_e( 'The Daily Edition', 'postfolio-blocks' ); ?></b>
+					<?php $lines( array( 60 ) ); ?>
+				</div>
+				<div class="pfm-list">
+					<?php for ( $i = 0; $i < 6; $i++ ) : ?>
+						<div class="pfm-row is-list"><div><span class="pfm-tag"></span><?php $lines( array( 88, 64 ), 'is-strong' ); ?><?php $lines( array( 40 ) ); ?></div><span class="pfm-img is-thumb"></span></div>
+					<?php endfor; ?>
+				</div>
+
+			<?php elseif ( 'portfolio' === $layout ) : ?>
+				<?php $header(); ?>
+				<div class="pfm-hero">
+					<span class="pfm-kicker"></span>
+					<b class="pfm-title is-lg"><?php esc_html_e( 'I design calm, useful', 'postfolio-blocks' ); ?> <em><?php esc_html_e( 'digital products.', 'postfolio-blocks' ); ?></em></b>
+					<span class="pfm-actions"><span class="pfm-btn"></span><span class="pfm-btn is-ghost"></span></span>
+				</div>
+				<div class="pfm-grid is-3 pfm-projects">
+					<?php for ( $i = 0; $i < 6; $i++ ) : ?>
+						<span class="pfm-tile"></span>
+					<?php endfor; ?>
+				</div>
+				<div class="pfm-band is-split"><b class="pfm-title is-sm"><?php esc_html_e( 'Let’s work together', 'postfolio-blocks' ); ?></b><span class="pfm-btn"></span></div>
+
+			<?php else : ?>
+				<div class="pfm-cover">
+					<?php $header( 'is-transparent' ); ?>
+					<span class="pfm-kicker"></span>
+					<b class="pfm-title"><?php esc_html_e( 'We help brands grow online', 'postfolio-blocks' ); ?></b>
+					<?php $lines( array( 62 ) ); ?>
+					<span class="pfm-actions"><span class="pfm-btn"></span><span class="pfm-btn is-ghost"></span></span>
+				</div>
+				<div class="pfm-grid is-3 pfm-services">
+					<?php for ( $i = 0; $i < 3; $i++ ) : ?>
+						<div class="pfm-card is-boxed"><span class="pfm-icon"></span><?php $lines( array( 70 ), 'is-strong' ); ?><?php $lines( array( 92, 80 ) ); ?></div>
+					<?php endfor; ?>
+				</div>
+				<div class="pfm-grid is-3 pfm-pricing">
+					<?php for ( $i = 0; $i < 3; $i++ ) : ?>
+						<div class="pfm-card is-boxed<?php echo 1 === $i ? ' is-featured' : ''; ?>"><?php $lines( array( 40 ) ); ?><b class="pfm-price"></b><?php $lines( array( 80, 70, 75 ) ); ?><span class="pfm-btn is-block"></span></div>
+					<?php endfor; ?>
+				</div>
+			<?php endif; ?>
+		</div>
+	</div>
+	<?php
+}
+
+/**
  * Render the main theme dashboard admin page.
  */
 function postfolio_blocks_admin_page_render() {
@@ -152,6 +267,7 @@ function postfolio_blocks_admin_page_render() {
 				<li><button type="button" role="tab" class="nav-tab nav-tab-active" data-tab="welcome"><?php esc_html_e( 'Welcome', 'postfolio-blocks' ); ?></button></li>
 				<li><button type="button" role="tab" class="nav-tab" data-tab="modules"><?php esc_html_e( 'Modules', 'postfolio-blocks' ); ?></button></li>
 				<li><button type="button" role="tab" class="nav-tab" data-tab="starter-sites"><?php esc_html_e( 'Starter Sites', 'postfolio-blocks' ); ?></button></li>
+				<li><button type="button" role="tab" class="nav-tab" data-tab="recommended-plugins"><?php esc_html_e( 'Recommended Plugins', 'postfolio-blocks' ); ?></button></li>
 				<li><button type="button" role="tab" class="nav-tab" data-tab="features"><?php esc_html_e( 'All Features', 'postfolio-blocks' ); ?></button></li>
 			</ul>
 		</div>
@@ -277,32 +393,104 @@ function postfolio_blocks_admin_page_render() {
 				<input type="checkbox" id="postfolio-apply-style" value="1">
 				<?php esc_html_e( 'Also apply the matching style variation (replaces your current Global Styles colors and fonts)', 'postfolio-blocks' ); ?>
 			</label>
+			<label class="postfolio-apply-style">
+				<input type="checkbox" id="postfolio-demo-content" value="1" checked>
+				<?php esc_html_e( 'Add demo posts, categories, featured images and a menu where the starter site includes them (marked "Demo content")', 'postfolio-blocks' ); ?>
+			</label>
 
 			<div class="postfolio-starter-grid">
-				<?php foreach ( postfolio_blocks_starter_sites() as $slug => $site ) : ?>
-					<div class="postfolio-starter-card">
-						<?php if ( $site['style'] ) : ?>
-							<div class="postfolio-pro-badge"><?php echo esc_html( $site['style'] ); ?></div>
-						<?php endif; ?>
-						<div class="postfolio-starter-preview-wrap">
-							<img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/' . $site['image'] ) ); ?>" alt="" loading="lazy">
+				<?php
+				$imported_sites = get_option( 'postfolio_blocks_imported_pages', array() );
+				$imported_sites = is_array( $imported_sites ) ? $imported_sites : array();
+
+				foreach ( postfolio_blocks_starter_sites() as $slug => $site ) :
+					$tokens   = postfolio_blocks_starter_site_tokens( $site['style'] );
+					$imported = ! empty( $imported_sites[ $slug ] );
+					$pages    = wp_list_pluck( $site['pages'], 0 );
+
+					if ( ! $site['front'] ) {
+						array_unshift( $pages, __( 'Latest posts', 'postfolio-blocks' ) );
+					}
+
+					if ( ! empty( $site['demo'] ) ) {
+						/* translators: %d: number of demo posts. */
+						$pages[] = sprintf( __( 'Demo content: %d posts', 'postfolio-blocks' ), count( postfolio_blocks_demo_posts() ) + ( empty( $site['projects'] ) ? 0 : count( postfolio_blocks_demo_projects() ) ) );
+					}
+
+					$vars = sprintf(
+						'--pf-bg:%1$s;--pf-bg2:%2$s;--pf-fg:%3$s;--pf-fg2:%4$s;--pf-ac:%5$s;--pf-ac2:%6$s;--pf-hf:%7$s;--pf-bf:%8$s;--pf-r:%9$s',
+						$tokens['base'],
+						$tokens['base-2'],
+						$tokens['contrast'],
+						$tokens['contrast-2'],
+						$tokens['accent'],
+						$tokens['accent-2'],
+						$tokens['heading'],
+						$tokens['body'],
+						$tokens['radius']
+					);
+					?>
+					<article class="postfolio-starter-card<?php echo $imported ? ' is-imported' : ''; ?>" style="<?php echo esc_attr( $vars ); ?>" aria-labelledby="postfolio-starter-<?php echo esc_attr( $slug ); ?>">
+						<div class="postfolio-starter-preview-wrap" aria-hidden="true">
+							<?php postfolio_blocks_starter_mockup( $site['layout'], get_bloginfo( 'name' ) ? get_bloginfo( 'name' ) : 'Postfolio' ); ?>
 						</div>
 						<div class="postfolio-starter-footer">
-							<span class="postfolio-starter-title"><?php echo esc_html( $site['title'] ); ?></span>
+							<div class="postfolio-starter-head">
+								<h3 class="postfolio-starter-title" id="postfolio-starter-<?php echo esc_attr( $slug ); ?>"><?php echo esc_html( $site['title'] ); ?></h3>
+								<?php if ( $imported ) : ?>
+									<span class="postfolio-starter-status"><span class="dashicons dashicons-yes" aria-hidden="true"></span><?php esc_html_e( 'Imported', 'postfolio-blocks' ); ?></span>
+								<?php endif; ?>
+							</div>
 							<p class="postfolio-starter-desc"><?php echo esc_html( $site['description'] ); ?></p>
+
+							<dl class="postfolio-starter-meta">
+								<div>
+									<dt><?php esc_html_e( 'Style', 'postfolio-blocks' ); ?></dt>
+									<dd>
+										<span class="postfolio-starter-swatches" aria-hidden="true"><i style="background:var(--pf-bg)"></i><i style="background:var(--pf-fg)"></i><i style="background:var(--pf-ac)"></i><i style="background:var(--pf-ac2)"></i></span>
+										<?php echo esc_html( $site['style'] ? $site['style'] : __( 'Default', 'postfolio-blocks' ) ); ?>
+									</dd>
+								</div>
+								<div>
+									<dt><?php esc_html_e( 'Fonts', 'postfolio-blocks' ); ?></dt>
+									<dd>
+										<span class="postfolio-starter-font is-heading"><?php echo esc_html( $tokens['heading-name'] ); ?></span>
+										<?php if ( $tokens['body-name'] !== $tokens['heading-name'] ) : ?>
+											<span aria-hidden="true">+</span>
+											<span class="postfolio-starter-font is-body"><?php echo esc_html( $tokens['body-name'] ); ?></span>
+										<?php endif; ?>
+									</dd>
+								</div>
+								<div>
+									<dt><?php esc_html_e( 'Pages', 'postfolio-blocks' ); ?></dt>
+									<dd>
+										<ul class="postfolio-starter-pages">
+											<?php foreach ( $pages as $page_title ) : ?>
+												<li><?php echo esc_html( $page_title ); ?></li>
+											<?php endforeach; ?>
+										</ul>
+									</dd>
+								</div>
+							</dl>
+
 							<div class="postfolio-starter-actions">
 								<button type="button" class="postfolio-btn-import" data-demo="<?php echo esc_attr( $slug ); ?>" data-title="<?php echo esc_attr( $site['title'] ); ?>">
-									<span class="dashicons dashicons-download" aria-hidden="true"></span>
-									<?php esc_html_e( 'Import', 'postfolio-blocks' ); ?>
+									<span class="dashicons dashicons-<?php echo $imported ? 'update' : 'download'; ?>" aria-hidden="true"></span>
+									<?php $imported ? esc_html_e( 'Re-import', 'postfolio-blocks' ) : esc_html_e( 'Import', 'postfolio-blocks' ); ?>
 								</button>
 							</div>
 						</div>
-					</div>
+					</article>
 				<?php endforeach; ?>
 			</div>
 		</div>
 
-		<!-- TAB 4: ALL FEATURES -->
+		<!-- TAB 4: RECOMMENDED PLUGINS -->
+		<div id="recommended-plugins" class="postfolio-tab-panel" role="tabpanel">
+			<?php postfolio_blocks_render_recommended_plugins(); ?>
+		</div>
+
+		<!-- TAB 5: ALL FEATURES -->
 		<div id="features" class="postfolio-tab-panel" role="tabpanel">
 			<div class="postfolio-section-header">
 				<h2><?php esc_html_e( 'All Features — Included Free', 'postfolio-blocks' ); ?></h2>

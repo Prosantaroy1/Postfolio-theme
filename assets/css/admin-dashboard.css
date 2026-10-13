@@ -325,81 +325,6 @@ input:checked + .postfolio-slider:before {
 	transform: translateX(20px);
 }
 
-/* Starter Sites Cards */
-.postfolio-starter-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
-	gap: 24px;
-	margin-top: 20px;
-}
-
-.postfolio-starter-card {
-	background: #ffffff;
-	border: 1px solid #e2e8f0;
-	border-radius: 10px;
-	overflow: hidden;
-	box-shadow: 0 1px 3px rgba(0,0,0,0.03);
-	display: flex;
-	flex-direction: column;
-	position: relative;
-	transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.postfolio-starter-card:hover {
-	transform: translateY(-2px);
-	box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-}
-
-.postfolio-starter-preview-wrap {
-	width: 100%;
-	height: 220px;
-	background: #f8fafc;
-	position: relative;
-	overflow: hidden;
-	border-bottom: 1px solid #f1f5f9;
-}
-
-.postfolio-starter-preview-wrap img,
-.postfolio-starter-preview-wrap svg {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	display: block;
-}
-
-.postfolio-pro-badge {
-	position: absolute;
-	top: 12px;
-	right: 12px;
-	background: #ea580c;
-	color: #ffffff;
-	font-size: 11px;
-	font-weight: 700;
-	padding: 3px 8px;
-	border-radius: 4px;
-	letter-spacing: 0.5px;
-	text-transform: uppercase;
-}
-
-.postfolio-starter-footer {
-	padding: 16px 20px;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	background: #ffffff;
-}
-
-.postfolio-starter-title {
-	font-size: 16px;
-	font-weight: 600;
-	color: #0f172a;
-}
-
-.postfolio-starter-actions {
-	display: flex;
-	gap: 8px;
-}
-
 .postfolio-btn-outline {
 	background: #ffffff;
 	color: #2563eb;
@@ -647,26 +572,7 @@ input:checked + .postfolio-slider:before {
 	margin-top: 2px;
 }
 
-.postfolio-starter-desc {
-	margin: 4px 0 12px;
-	font-size: 13px;
-	color: #64748b;
-	line-height: 1.5;
-}
-
-.postfolio-starter-footer {
-	flex-direction: column;
-	align-items: flex-start;
-}
-
-.postfolio-starter-actions {
-	width: 100%;
-}
-
-.postfolio-starter-actions .postfolio-btn-import {
-	width: 100%;
-	justify-content: center;
-}
+/* starter cards: see the end of this file */
 
 .postfolio-comparison-table tbody th {
 	text-align: left;
@@ -696,4 +602,727 @@ input:checked + .postfolio-slider:before {
 		display: block;
 		overflow-x: auto;
 	}
+}
+
+/* ==========================================================================
+   Starter sites
+   Each card carries its starter site's design tokens as custom properties
+   (--pf-bg, --pf-fg, --pf-ac, --pf-hf, --pf-r …) and paints a mini mockup
+   of the homepage with them, using the theme's own bundled fonts.
+   ========================================================================== */
+
+@font-face { font-family: "Poppins"; src: url(../fonts/poppins-latin-700-normal.woff2) format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url(../fonts/poppins-latin-600-normal.woff2) format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Montserrat"; src: url(../fonts/montserrat-latin-300-800-normal.woff2) format("woff2"); font-weight: 300 800; font-display: swap; }
+@font-face { font-family: "Manrope"; src: url(../fonts/manrope-latin-wght-normal.woff2) format("woff2"); font-weight: 200 800; font-display: swap; }
+@font-face { font-family: "Lora"; src: url(../fonts/lora-latin-400-700-normal.woff2) format("woff2"); font-weight: 400 700; font-display: swap; }
+@font-face { font-family: "Playfair Display"; src: url(../fonts/playfair-display-latin-400-900-normal.woff2) format("woff2"); font-weight: 400 900; font-display: swap; }
+@font-face { font-family: "Playfair Display"; src: url(../fonts/playfair-display-latin-400-900-italic.woff2) format("woff2"); font-weight: 400 900; font-style: italic; font-display: swap; }
+
+.postfolio-starter-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+	gap: 24px;
+	margin-top: 20px;
+}
+
+.postfolio-starter-card {
+	display: flex;
+	flex-direction: column;
+	background: #ffffff;
+	border: 1px solid #e2e8f0;
+	border-radius: 14px;
+	overflow: hidden;
+	box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+	transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.postfolio-starter-card:hover,
+.postfolio-starter-card:focus-within {
+	transform: translateY(-3px);
+	border-color: color-mix(in srgb, var(--pf-ac) 45%, #e2e8f0);
+	box-shadow: 0 14px 34px -12px color-mix(in srgb, var(--pf-ac) 40%, transparent);
+}
+
+/* Preview stage: tinted with the site's own accent colors. */
+.postfolio-starter-preview-wrap {
+	padding: 18px 18px 0;
+	background:
+		radial-gradient(120% 80% at 100% 0%, color-mix(in srgb, var(--pf-ac) 22%, transparent), transparent 60%),
+		radial-gradient(90% 70% at 0% 100%, color-mix(in srgb, var(--pf-ac2) 18%, transparent), transparent 60%),
+		color-mix(in srgb, var(--pf-ac) 6%, #f8fafc);
+	border-bottom: 1px solid #eef2f7;
+}
+
+/* ---------- Mini browser ---------- */
+.pfm-chrome {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	height: 22px;
+	padding: 0 10px;
+	background: #ffffff;
+	border: 1px solid rgba(15, 23, 42, 0.08);
+	border-bottom: 0;
+	border-radius: 9px 9px 0 0;
+}
+
+.pfm-chrome i {
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background: #e2e8f0;
+}
+
+.pfm-chrome i:first-child { background: #fca5a5; }
+.pfm-chrome i:nth-child(2) { background: #fcd34d; }
+.pfm-chrome i:nth-child(3) { background: #86efac; }
+
+.pfm-url {
+	flex: 1;
+	max-width: 55%;
+	height: 9px;
+	margin-left: 8px;
+	border-radius: 9px;
+	background: #f1f5f9;
+}
+
+.pfm-screen {
+	container-type: inline-size;
+	position: relative;
+	aspect-ratio: 16 / 10;
+	overflow: hidden;
+	background: var(--pf-bg);
+	border: 1px solid rgba(15, 23, 42, 0.08);
+	border-bottom: 0;
+	box-shadow: 0 -2px 18px -6px rgba(15, 23, 42, 0.18);
+}
+
+/* The page is taller than the screen and scrolls into view on hover. */
+.pfm-page {
+	display: flex;
+	flex-direction: column;
+	gap: 5cqw;
+	padding: 0 5cqw 6cqw;
+	color: var(--pf-fg);
+	background: var(--pf-bg);
+	font-family: var(--pf-bf);
+	transition: transform 2.4s cubic-bezier(0.45, 0, 0.25, 1);
+}
+
+.postfolio-starter-card:hover .pfm-page,
+.postfolio-starter-card:focus-within .pfm-page {
+	transform: translateY(-38%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.postfolio-starter-card,
+	.pfm-page {
+		transition: none;
+	}
+
+	.postfolio-starter-card:hover .pfm-page,
+	.postfolio-starter-card:focus-within .pfm-page {
+		transform: none;
+	}
+}
+
+/* ---------- Mockup atoms ---------- */
+.pfm-header {
+	display: flex;
+	align-items: center;
+	gap: 3cqw;
+	padding: 3.4cqw 0;
+	border-bottom: 1px solid color-mix(in srgb, var(--pf-fg) 10%, transparent);
+}
+
+.pfm-header.is-ruled {
+	border-bottom: 2px solid var(--pf-fg);
+}
+
+.pfm-header.is-transparent {
+	border-color: color-mix(in srgb, var(--pf-bg) 25%, transparent);
+	color: var(--pf-bg);
+}
+
+.pfm-logo {
+	max-width: 32%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	font-family: var(--pf-hf);
+	font-size: 3.6cqw;
+	font-weight: 800;
+	letter-spacing: -0.01em;
+}
+
+.pfm-nav {
+	display: flex;
+	gap: 2.4cqw;
+	margin-left: auto;
+}
+
+.pfm-nav i {
+	width: 6cqw;
+	height: 1.2cqw;
+	border-radius: 2cqw;
+	background: currentColor;
+	opacity: 0.35;
+}
+
+.pfm-btn {
+	display: inline-block;
+	width: 16cqw;
+	height: 5.4cqw;
+	border-radius: var(--pf-r);
+	background: var(--pf-ac);
+}
+
+.pfm-btn.is-small { width: 11cqw; height: 4cqw; }
+.pfm-btn.is-ghost { background: transparent; box-shadow: inset 0 0 0 1.5px currentColor; opacity: 0.6; }
+.pfm-btn.is-block { width: 100%; height: 4.4cqw; margin-top: auto; }
+
+.pfm-actions {
+	display: flex;
+	gap: 2cqw;
+	margin-top: 1cqw;
+}
+
+.pfm-kicker {
+	width: 14cqw;
+	height: 1.4cqw;
+	border-radius: 2cqw;
+	background: var(--pf-ac);
+}
+
+.pfm-title {
+	display: block;
+	font-family: var(--pf-hf);
+	font-size: 6.4cqw;
+	font-weight: 700;
+	line-height: 1.12;
+	letter-spacing: -0.015em;
+	color: inherit;
+}
+
+.pfm-title.is-lg { font-size: 7.6cqw; }
+.pfm-title.is-md { font-size: 4.2cqw; }
+.pfm-title.is-sm { font-size: 3.8cqw; }
+
+.pfm-title em {
+	font-style: italic;
+	color: var(--pf-ac);
+}
+
+.pfm-line {
+	display: block;
+	height: 1.3cqw;
+	border-radius: 2cqw;
+	background: var(--pf-fg2);
+	opacity: 0.35;
+}
+
+.pfm-line.is-strong {
+	height: 1.7cqw;
+	background: var(--pf-fg);
+	opacity: 0.8;
+}
+
+.pfm-tag {
+	display: block;
+	width: 9cqw;
+	height: 1.2cqw;
+	border-radius: 2cqw;
+	background: var(--pf-ac);
+	opacity: 0.85;
+}
+
+.pfm-img {
+	display: block;
+	aspect-ratio: 4 / 3;
+	border-radius: calc(min(var(--pf-r), 12px) * 0.6);
+	background:
+		radial-gradient(circle at 72% 30%, color-mix(in srgb, var(--pf-bg) 70%, transparent) 0 9%, transparent 10%),
+		linear-gradient(160deg, transparent 55%, color-mix(in srgb, var(--pf-fg) 22%, transparent) 56%),
+		linear-gradient(135deg, var(--pf-ac), var(--pf-ac2));
+}
+
+.pfm-grid .pfm-card:nth-child(2) .pfm-img { filter: hue-rotate(-18deg); }
+.pfm-grid .pfm-card:nth-child(3) .pfm-img { filter: saturate(0.7) brightness(1.1); }
+.pfm-img.is-tall { aspect-ratio: 16 / 10; }
+.pfm-img.is-thumb { flex: none; width: 15cqw; aspect-ratio: 1; }
+
+.pfm-hero,
+.pfm-card,
+.pfm-lead,
+.pfm-list {
+	display: flex;
+	flex-direction: column;
+	gap: 1.8cqw;
+}
+
+.pfm-list { gap: 3cqw; }
+.pfm-hero { gap: 2.4cqw; padding-top: 3cqw; }
+.pfm-hero.is-center { align-items: center; text-align: center; }
+
+.pfm-grid {
+	display: grid;
+	gap: 3cqw;
+}
+
+.pfm-grid.is-3 { grid-template-columns: repeat(3, 1fr); }
+.pfm-grid.is-4 { grid-template-columns: repeat(4, 1fr); gap: 2.4cqw; }
+
+.pfm-card.is-boxed {
+	padding: 3cqw;
+	border-radius: min(var(--pf-r), 12px);
+	background: var(--pf-bg2);
+}
+
+.pfm-row {
+	display: flex;
+	align-items: center;
+	gap: 2.4cqw;
+}
+
+.pfm-row > div {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	gap: 1.4cqw;
+}
+
+.pfm-row.is-list {
+	padding-bottom: 3cqw;
+	border-bottom: 1px solid color-mix(in srgb, var(--pf-fg) 12%, transparent);
+}
+
+.pfm-band {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2.4cqw;
+	padding: 5cqw;
+	border-radius: min(var(--pf-r), 14px);
+	background: var(--pf-bg2);
+	text-align: center;
+}
+
+.pfm-band.is-split {
+	flex-direction: row;
+	justify-content: space-between;
+	background: var(--pf-ac);
+	color: var(--pf-bg);
+}
+
+.pfm-band.is-split .pfm-btn { background: var(--pf-bg); }
+
+.pfm-input {
+	width: 60%;
+	height: 5cqw;
+	border-radius: var(--pf-r);
+	background: var(--pf-bg);
+	box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--pf-fg) 15%, transparent);
+}
+
+.pfm-label {
+	width: 22cqw;
+	height: 2cqw;
+	margin-bottom: -2cqw;
+	border-radius: 2cqw;
+	background: var(--pf-fg);
+}
+
+/* Magazine */
+.pfm-feature {
+	display: grid;
+	grid-template-columns: 1.4fr 1fr;
+	gap: 3.4cqw;
+	padding-top: 1cqw;
+}
+
+.pfm-side {
+	display: flex;
+	flex-direction: column;
+	gap: 2.6cqw;
+}
+
+.pfm-magazine .pfm-img { border-radius: 0; }
+
+/* Portfolio */
+.pfm-projects { gap: 2.4cqw; }
+
+.pfm-tile {
+	aspect-ratio: 1;
+	border-radius: min(var(--pf-r), 12px);
+	background: linear-gradient(140deg, var(--pf-ac), color-mix(in srgb, var(--pf-ac) 30%, var(--pf-bg2)));
+}
+
+.pfm-tile:nth-child(2n) { background: linear-gradient(140deg, var(--pf-ac2), color-mix(in srgb, var(--pf-ac2) 30%, var(--pf-bg2))); }
+.pfm-tile:nth-child(3n) { background: var(--pf-bg2); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--pf-fg) 12%, transparent); }
+
+/* Business */
+.pfm-cover {
+	display: flex;
+	flex-direction: column;
+	gap: 2.4cqw;
+	margin: 0 -5cqw;
+	padding: 0 5cqw 11cqw;
+	color: var(--pf-bg);
+	background:
+		radial-gradient(80% 90% at 100% 100%, color-mix(in srgb, var(--pf-ac2) 70%, transparent), transparent 60%),
+		linear-gradient(135deg, var(--pf-ac), color-mix(in srgb, var(--pf-ac) 55%, var(--pf-fg)));
+}
+
+.pfm-cover .pfm-header { margin-bottom: 4cqw; }
+.pfm-cover .pfm-kicker,
+.pfm-cover .pfm-line,
+.pfm-cover .pfm-btn:not(.is-ghost) { background: var(--pf-bg); }
+.pfm-services { margin-top: -9cqw; }
+.pfm-services .pfm-card { background: var(--pf-bg); box-shadow: 0 2cqw 5cqw -2cqw rgba(0, 0, 0, 0.25); }
+
+.pfm-icon {
+	width: 6cqw;
+	height: 6cqw;
+	border-radius: 30%;
+	background: var(--pf-ac);
+	box-shadow: 0 0 0 1.4cqw color-mix(in srgb, var(--pf-ac) 18%, var(--pf-bg));
+	margin: 1.4cqw;
+}
+
+.pfm-pricing .pfm-card { min-height: 34cqw; }
+.pfm-pricing .is-featured { background: var(--pf-fg); color: var(--pf-bg); }
+.pfm-pricing .is-featured .pfm-line { background: var(--pf-bg); }
+
+.pfm-price {
+	display: block;
+	width: 50%;
+	height: 4.4cqw;
+	border-radius: 1cqw;
+	background: currentColor;
+}
+
+/* ---------- Card body ---------- */
+.postfolio-starter-footer {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	gap: 12px;
+	padding: 18px 20px 20px;
+}
+
+.postfolio-starter-head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+}
+
+.postfolio-starter-title {
+	margin: 0;
+	font-size: 16px;
+	font-weight: 600;
+	color: #0f172a;
+}
+
+.postfolio-starter-status {
+	display: inline-flex;
+	align-items: center;
+	padding: 2px 8px 2px 4px;
+	border-radius: 999px;
+	background: #dcfce7;
+	color: #166534;
+	font-size: 11px;
+	font-weight: 600;
+	white-space: nowrap;
+}
+
+.postfolio-starter-status .dashicons {
+	width: 16px;
+	height: 16px;
+	font-size: 16px;
+}
+
+.postfolio-starter-desc {
+	margin: 0;
+	font-size: 13px;
+	line-height: 1.55;
+	color: #64748b;
+}
+
+.postfolio-starter-meta {
+	display: grid;
+	gap: 8px;
+	margin: 0;
+	padding: 12px 0 0;
+	border-top: 1px dashed #e2e8f0;
+	font-size: 12px;
+}
+
+.postfolio-starter-meta > div {
+	display: grid;
+	grid-template-columns: 48px 1fr;
+	align-items: center;
+	gap: 8px;
+}
+
+.postfolio-starter-meta dt {
+	color: #94a3b8;
+	font-weight: 500;
+}
+
+.postfolio-starter-meta dd {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 6px;
+	margin: 0;
+	color: #334155;
+	font-weight: 600;
+}
+
+.postfolio-starter-swatches {
+	display: inline-flex;
+}
+
+.postfolio-starter-swatches i {
+	width: 14px;
+	height: 14px;
+	margin-right: -4px;
+	border-radius: 50%;
+	box-shadow: 0 0 0 2px #ffffff, inset 0 0 0 1px rgba(15, 23, 42, 0.12);
+}
+
+.postfolio-starter-swatches i:last-child {
+	margin-right: 4px;
+}
+
+.postfolio-starter-font {
+	font-size: 13px;
+}
+
+.postfolio-starter-font.is-heading {
+	font-family: var(--pf-hf);
+	font-weight: 700;
+}
+
+.postfolio-starter-font.is-body {
+	font-family: var(--pf-bf);
+	font-weight: 500;
+}
+
+.postfolio-starter-pages {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.postfolio-starter-pages li {
+	margin: 0;
+	padding: 1px 7px;
+	border-radius: 5px;
+	background: #f1f5f9;
+	color: #475569;
+	font-weight: 500;
+}
+
+/* The button sits at the bottom so every card lines up. */
+.postfolio-starter-actions {
+	display: flex;
+	margin-top: auto;
+	padding-top: 4px;
+}
+
+.postfolio-starter-actions .postfolio-btn-import {
+	width: 100%;
+	justify-content: center;
+	gap: 6px;
+	padding: 9px 16px;
+	border-radius: 8px;
+	font-size: 13px;
+}
+
+.postfolio-starter-actions .postfolio-btn-import:focus-visible {
+	outline: 2px solid #2563eb;
+	outline-offset: 2px;
+}
+
+.postfolio-starter-card.is-imported .postfolio-btn-import {
+	background: #ffffff;
+	color: #1d4ed8;
+}
+
+.postfolio-starter-card.is-imported .postfolio-btn-import:hover {
+	background: #eff6ff;
+}
+
+/* ==========================================================================
+   Recommended plugins
+   ========================================================================== */
+.postfolio-plugin-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr));
+	gap: 24px;
+	margin-top: 20px;
+}
+
+.postfolio-plugin-card {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	padding: 24px;
+	background: #ffffff;
+	border: 1px solid #e2e8f0;
+	border-radius: 14px;
+	box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+	transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.postfolio-plugin-card:hover {
+	border-color: #c7d2fe;
+	box-shadow: 0 14px 34px -14px rgba(37, 99, 235, 0.35);
+}
+
+.postfolio-plugin-card.is-active {
+	border-color: #bbf7d0;
+}
+
+.postfolio-plugin-head {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+}
+
+.postfolio-plugin-icon {
+	flex: none;
+	width: 56px;
+	height: 56px;
+}
+
+.postfolio-plugin-icon svg {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.postfolio-plugin-head h3 {
+	margin: 0 0 2px;
+	font-size: 17px;
+	color: #0f172a;
+}
+
+.postfolio-plugin-tagline {
+	margin: 0;
+	color: #64748b;
+	font-size: 13px;
+}
+
+.postfolio-plugin-free {
+	margin-left: auto;
+	align-self: flex-start;
+	padding: 2px 10px;
+	border-radius: 999px;
+	background: #dcfce7;
+	color: #166534;
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+
+.postfolio-plugin-desc {
+	margin: 0;
+	color: #334155;
+	font-size: 14px;
+	line-height: 1.6;
+}
+
+.postfolio-plugin-features {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+	gap: 6px 16px;
+	margin: 0;
+	padding: 12px 0;
+	border-top: 1px dashed #e2e8f0;
+	border-bottom: 1px dashed #e2e8f0;
+}
+
+.postfolio-plugin-features li {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	margin: 0;
+	color: #334155;
+	font-size: 13px;
+}
+
+.postfolio-plugin-features .dashicons {
+	color: #16a34a;
+}
+
+.postfolio-plugin-bestfor {
+	margin: 0;
+	color: #64748b;
+	font-size: 13px;
+}
+
+.postfolio-plugin-bestfor strong {
+	color: #0f172a;
+}
+
+.postfolio-plugin-actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px;
+	margin-top: auto;
+}
+
+.postfolio-plugin-actions .button {
+	min-height: 36px;
+	padding: 0 16px;
+	line-height: 34px;
+	border-radius: 8px;
+}
+
+.postfolio-plugin-active {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	padding: 6px 12px;
+	border-radius: 8px;
+	background: #dcfce7;
+	color: #166534;
+	font-weight: 600;
+}
+
+.postfolio-plugin-actions .button {
+	display: inline-flex;
+	align-items: center;
+	border: 1px solid #cbd5e1;
+	background: #ffffff;
+	color: #0f172a;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.postfolio-plugin-actions .button-primary {
+	border-color: #2563eb;
+	background: #2563eb;
+	color: #ffffff;
+}
+
+.postfolio-plugin-actions .button-primary:hover,
+.postfolio-plugin-actions .button-primary:focus {
+	border-color: #1d4ed8;
+	background: #1d4ed8;
+	color: #ffffff;
+}
+
+.postfolio-plugin-actions .button:focus-visible {
+	outline: 2px solid #2563eb;
+	outline-offset: 2px;
 }

@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:group {"tagName":"main","align":"full","layout":{"type":"constrained"}} -->
 <main class="wp-block-group alignfull"><!-- wp:group {"align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|50","bottom":"0"}}},"layout":{"type":"constrained","contentSize":"680px"}} -->
 <div class="wp-block-group alignwide" style="margin-top:var(--wp--preset--spacing--50);margin-bottom:0"><!-- wp:paragraph {"align":"center","className":"postfolio-badge"} -->
-<p class="has-text-align-center postfolio-badge"><?php esc_html_e( 'Home 2 · Spotlight', 'postfolio-blocks' ); ?></p>
+<p class="has-text-align-center postfolio-badge"><?php esc_html_e( 'Spotlight', 'postfolio-blocks' ); ?></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"textAlign":"center","level":1,"fontSize":"xx-large"} -->

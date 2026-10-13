@@ -782,6 +782,41 @@
 			"postTypes": [
 				"post"
 			]
+		},
+		{
+			"name": "single-case-study",
+			"title": "Post – Case Study (Work)",
+			"postTypes": [
+				"post"
+			]
+		},
+		{
+			"name": "single-format-video",
+			"title": "Post – Video",
+			"postTypes": [
+				"post"
+			]
+		},
+		{
+			"name": "single-format-gallery",
+			"title": "Post – Gallery",
+			"postTypes": [
+				"post"
+			]
+		},
+		{
+			"name": "single-format-quote",
+			"title": "Post – Quote",
+			"postTypes": [
+				"post"
+			]
+		},
+		{
+			"name": "single-format-audio",
+			"title": "Post – Audio / Podcast",
+			"postTypes": [
+				"post"
+			]
 		}
 	],
 	"templateParts": [

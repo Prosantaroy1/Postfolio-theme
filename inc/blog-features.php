@@ -49,6 +49,9 @@ function postfolio_blocks_render_block_data( $parsed_block ) {
 		} elseif ( postfolio_blocks_block_has_class( $parsed_block, 'postfolio-popular-posts' ) ) {
 			$parsed_block['attrs']['query']['inherit']       = false;
 			$parsed_block['attrs']['query']['postfolioMode'] = 'popular';
+		} elseif ( postfolio_blocks_block_has_class( $parsed_block, 'postfolio-current-term' ) ) {
+			$parsed_block['attrs']['query']['inherit']       = false;
+			$parsed_block['attrs']['query']['postfolioMode'] = 'current-term';
 		}
 	}
 
@@ -59,6 +62,40 @@ function postfolio_blocks_render_block_data( $parsed_block ) {
 	return $parsed_block;
 }
 add_filter( 'render_block_data', 'postfolio_blocks_render_block_data' );
+
+/**
+ * Pass the related/popular mode from a tagged Query Loop to its Post Template.
+ *
+ * render_block_data only reaches the post template's context when the Query
+ * Loop is a top-level block; inside groups or columns the context is built
+ * from the parent block, so set it here from the parent's class name.
+ *
+ * @param array         $context      Block context.
+ * @param array         $parsed_block Block being rendered.
+ * @param WP_Block|null $parent_block Parent block.
+ * @return array
+ */
+function postfolio_blocks_query_mode_context( $context, $parsed_block, $parent_block = null ) {
+	if ( ! $parent_block || 'core/query' !== $parent_block->name || ! isset( $context['query'] ) ) {
+		return $context;
+	}
+
+	$parent = $parent_block->parsed_block;
+
+	if ( postfolio_blocks_block_has_class( $parent, 'postfolio-related-posts' ) ) {
+		$context['query']['inherit']       = false;
+		$context['query']['postfolioMode'] = 'related';
+	} elseif ( postfolio_blocks_block_has_class( $parent, 'postfolio-popular-posts' ) ) {
+		$context['query']['inherit']       = false;
+		$context['query']['postfolioMode'] = 'popular';
+	} elseif ( postfolio_blocks_block_has_class( $parent, 'postfolio-current-term' ) ) {
+		$context['query']['inherit']       = false;
+		$context['query']['postfolioMode'] = 'current-term';
+	}
+
+	return $context;
+}
+add_filter( 'render_block_context', 'postfolio_blocks_query_mode_context', 10, 3 );
 
 /**
  * Adjust the WP_Query arguments of tagged Query Loops.
@@ -81,6 +118,20 @@ function postfolio_blocks_query_loop_vars( $query, $block ) {
 			if ( $categories ) {
 				$query['category__in'] = $categories;
 			}
+		}
+	} elseif ( 'current-term' === $mode ) {
+		// Archive sections (lead story, grid) scoped to the term being viewed.
+		$term = get_queried_object();
+		if ( $term instanceof WP_Term ) {
+			$query['tax_query'] = array(
+				array(
+					'taxonomy'         => $term->taxonomy,
+					'field'            => 'term_id',
+					'terms'            => array( $term->term_id ),
+					'include_children' => true,
+				),
+			);
+			$query['ignore_sticky_posts'] = true;
 		}
 	} elseif ( 'popular' === $mode ) {
 		$query['orderby']             = 'comment_count';
@@ -175,3 +226,31 @@ function postfolio_blocks_maybe_enqueue_toc( $block_content, $block ) {
 	return $block_content;
 }
 add_filter( 'render_block_core/group', 'postfolio_blocks_maybe_enqueue_toc', 10, 2 );
+
+/**
+ * Give the author box a short fallback bio, with a link to the author's
+ * archive, when the author has not filled in their biography yet.
+ *
+ * @param string $block_content Rendered block.
+ * @param array  $block         Parsed block.
+ * @return string
+ */
+function postfolio_blocks_author_bio_fallback( $block_content, $block ) {
+	if ( '' !== trim( $block_content ) || empty( $block['attrs']['className'] ) || false === strpos( $block['attrs']['className'], 'postfolio-author-bio' ) ) {
+		return $block_content;
+	}
+
+	$author_id = (int) get_post_field( 'post_author', get_the_ID() );
+	if ( ! $author_id ) {
+		return $block_content;
+	}
+
+	return sprintf(
+		'<div class="wp-block-post-author-biography postfolio-author-bio has-contrast-2-color has-text-color">%1$s <a href="%2$s">%3$s</a></div>',
+		/* translators: 1: author name, 2: site name. */
+		esc_html( sprintf( __( '%1$s writes for %2$s.', 'postfolio-blocks' ), get_the_author_meta( 'display_name', $author_id ), get_bloginfo( 'name' ) ) ),
+		esc_url( get_author_posts_url( $author_id ) ),
+		esc_html__( 'Read all their stories →', 'postfolio-blocks' )
+	);
+}
+add_filter( 'render_block_core/post-author-biography', 'postfolio_blocks_author_bio_fallback', 10, 2 );

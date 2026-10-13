@@ -43,6 +43,7 @@ if ( ! function_exists( 'postfolio_blocks_styles' ) ) {
 
 		wp_enqueue_style( 'postfolio-blocks-style', get_stylesheet_uri(), array(), $version );
 		wp_enqueue_style( 'postfolio-blocks-custom', get_theme_file_uri( 'assets/css/custom.css' ), array( 'postfolio-blocks-style' ), $version );
+		wp_add_inline_style( 'postfolio-blocks-custom', postfolio_blocks_footer_palette_css() );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'postfolio_blocks_styles' );
@@ -81,6 +82,10 @@ if ( ! function_exists( 'postfolio_blocks_pattern_categories' ) ) {
 			'postfolio-blocks-meta'         => array(
 				'label'       => _x( 'Postfolio — Author & Contact', 'Block pattern category', 'postfolio-blocks' ),
 				'description' => __( 'Author bio cards, social link profiles and contact blocks.', 'postfolio-blocks' ),
+			),
+			'postfolio-blocks-news'         => array(
+				'label'       => _x( 'Postfolio — News & Ads', 'Block pattern category', 'postfolio-blocks' ),
+				'description' => __( 'Breaking news ticker, top bar, live blog and ad slots.', 'postfolio-blocks' ),
 			),
 			'postfolio-blocks-pages'        => array(
 				'label'       => _x( 'Postfolio — Page Layouts', 'Block pattern category', 'postfolio-blocks' ),
@@ -164,5 +169,8 @@ add_filter( 'excerpt_more', 'postfolio_blocks_excerpt_more' );
 
 require_once get_template_directory() . '/inc/modules.php';
 require_once get_template_directory() . '/inc/blog-features.php';
+require_once get_template_directory() . '/inc/news-features.php';
+require_once get_template_directory() . '/inc/demo-content.php';
 require_once get_template_directory() . '/inc/starter-sites.php';
+require_once get_template_directory() . '/inc/recommended-plugins.php';
 require_once get_template_directory() . '/inc/admin-dashboard.php';
