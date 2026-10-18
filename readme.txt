@@ -6,7 +6,7 @@ Requires PHP: 7.4
 Version: 1.2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
-Tags: blog, news, portfolio, one-column, two-columns, three-columns, four-columns, right-sidebar, grid-layout, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, post-formats, full-width-template, block-patterns, block-styles, style-variations, template-editing, theme-options, threaded-comments, rtl-language-support, translation-ready, wide-blocks
+Tags: blog, news, portfolio, one-column, two-columns,block-theme, gutenberg-theme,block-editor, three-columns, four-columns, right-sidebar, grid-layout, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, post-formats, full-width-template, block-patterns, block-styles, style-variations, template-editing, theme-options, threaded-comments, rtl-language-support, translation-ready, wide-blocks
 
 Free FSE block theme for blogs, news magazines, portfolios and agencies — 5 starter sites with demo content, 68 patterns and dark mode.
 
